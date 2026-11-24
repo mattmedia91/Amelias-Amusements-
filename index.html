@@ -14,10 +14,10 @@
       "@graph": [
         {
           "@type": "LocalBusiness",
-          "@id": "https://ameliasamusements.github.io/#business",
+          "@id": "https://mattmedia91.github.io/#business",
           "name": "Amelia's Amusements",
           "description": "Country-rooted, locally restored coin stands in Sussex County, NJ featuring Sussex Barn Crew farm collectibles, handmade craft keepsakes, keychain bottle openers, a focused K-Pop niche set, and 100% dye-free gumballs.",
-          "url": "https://ameliasamusements.github.io/",
+          "url": "https://mattmedia91.github.io/",
           "areaServed": [
             {
               "@type": "AdministrativeArea",
@@ -38,107 +38,11 @@
             "addressRegion": "NJ",
             "postalCode": "07461",
             "addressCountry": "US"
-          },
-          "knowsAbout": [
-            "Sussex Barn Crew",
-            "Handmade Craft Keepsakes",
-            "Keychain Bottle Openers",
-            "K-Pop Fandom Niche",
-            "100% Dye-Free Gumballs",
-            "Main Street Family Treasure Quest"
-          ]
-        },
-        {
-          "@type": "WebPage",
-          "@id": "https://ameliasamusements.github.io/#webpage",
-          "url": "https://ameliasamusements.github.io/",
-          "name": "Amelia's Amusements — Sussex County Country Drops & Main Street Quest",
-          "description": "Scan a machine QR code to see active collections, 100% dye-free gumballs, and participating Main Street stops in Sussex, NJ.",
-          "about": {
-            "@id": "https://ameliasamusements.github.io/#business"
-          },
-          "mainEntity": {
-            "@id": "https://ameliasamusements.github.io/#route-list"
           }
-        },
-        {
-          "@type": "ItemList",
-          "@id": "https://ameliasamusements.github.io/#route-list",
-          "name": "Sussex Main Street Starter Route Stops",
-          "description": "Initial Main Street host stops for Amelia's Amusements stands and family quest scans.",
-          "numberOfItems": 4,
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "item": {
-                "@type": "LocalBusiness",
-                "name": "Early American Tavern",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "9 Main St",
-                  "addressLocality": "Sussex",
-                  "addressRegion": "NJ",
-                  "postalCode": "07461",
-                  "addressCountry": "US"
-                }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "item": {
-                "@type": "LocalBusiness",
-                "name": "The Sussex Saloon",
-                "alternateName": "The Billiard Place",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "15-17 Main St",
-                  "addressLocality": "Sussex",
-                  "addressRegion": "NJ",
-                  "postalCode": "07461",
-                  "addressCountry": "US"
-                }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "item": {
-                "@type": "LocalBusiness",
-                "name": "Main Street Barbers",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "49/51 Main St",
-                  "addressLocality": "Sussex",
-                  "addressRegion": "NJ",
-                  "postalCode": "07461",
-                  "addressCountry": "US"
-                }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "item": {
-                "@type": "LocalBusiness",
-                "name": "Lorenzo's Pizzeria & Restaurant",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "67 Main St",
-                  "addressLocality": "Sussex",
-                  "addressRegion": "NJ",
-                  "postalCode": "07461",
-                  "addressCountry": "US"
-                }
-              }
-            }
-          ]
         }
       ]
     }
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
   <style>
     :root {
       --bg: #f4efe4;
@@ -169,7 +73,7 @@
     header.hero {
       background: linear-gradient(135deg, var(--barn-dark), var(--barn));
       color: #fbf7ef;
-      padding: 2.5rem 1.25rem;
+      padding: 2.25rem 1.25rem;
       border-bottom: 5px solid var(--brass);
     }
 
@@ -187,7 +91,6 @@
       border-radius: 999px;
       font-size: 0.82rem;
       font-weight: 700;
-      letter-spacing: 0.03em;
       margin-bottom: 0.75rem;
     }
 
@@ -253,7 +156,7 @@
 
     .grid-2 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 1.25rem;
     }
 
@@ -265,10 +168,7 @@
       box-shadow: 0 2px 8px rgba(35, 31, 28, 0.05);
     }
 
-    .card h3 {
-      margin: 0 0 0.35rem;
-      font-size: 1.15rem;
-    }
+    .card h3 { margin: 0 0 0.35rem; font-size: 1.15rem; }
 
     .meta {
       font-size: 0.88rem;
@@ -304,9 +204,14 @@
       padding: 4px;
       border: 1px solid var(--border);
       border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.72rem;
     }
 
-    .qr-code img { width: 100%; height: 100%; display: block; }
+    .qr-code img, .qr-code canvas { width: 88px; height: 88px; display: block; }
 
     .btn {
       display: inline-block;
@@ -327,4 +232,267 @@
     .btn-outline {
       background: transparent;
       color: var(--barn-dark);
-      border:
+      border: 1px solid var(--barn);
+    }
+
+    .pitch-box {
+      background: var(--surface);
+      border-left: 5px solid var(--pine);
+      border-radius: 12px;
+      padding: 1.25rem 1.4rem;
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    footer {
+      background: #231f1c;
+      color: #e6dfd3;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    @media print {
+      header.hero, .no-print, footer { display: none; }
+      .card { break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="badge">SUSSEX COUNTY, NJ • COUNTRY DROPS &amp; MAIN STREET QUEST</div>
+      <h1>Amelia's Amusements</h1>
+      <p class="lead">
+        Country-rooted, locally restored coin stands made for Sussex County families and visitors—
+        featuring Sussex Barn Crew farm plushies, handmade craft keepsakes, keychain bottle openers,
+        a focused K-Pop niche set, and <strong>100% dye-free gumballs</strong> at every stop.
+      </p>
+      <div class="pill-row">
+        <span class="pill">Sussex Barn Crew</span>
+        <span class="pill">Handmade Craft Keepsakes</span>
+        <span class="pill">Keychain Bottle Openers</span>
+        <span class="pill">K-Pop Niche • 100% Dye-Free Gum</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="scanned-stop-banner" class="active-banner" aria-live="polite"></div>
+
+    <section id="route">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:0.75rem;">
+        <div>
+          <h2>First 4 Sussex Main Street Stops &amp; Location QR Codes</h2>
+          <p class="section-sub">
+            Each machine carries its own QR code tagged to that stop so families can trace the route
+            and you can track where scans happen first.
+          </p>
+        </div>
+        <button class="btn btn-outline no-print" onclick="window.print()">Print QR Cards</button>
+      </div>
+      <div id="locations-grid" class="grid-2"></div>
+    </section>
+
+    <section id="collections">
+      <h2>First-Wave Country &amp; Collector Sets</h2>
+      <p class="section-sub">
+        Four 6-item collections (5 regular pulls + 1 rare chase pull), always paired with 100% dye-free gumballs.
+      </p>
+      <div class="grid-4">
+        <div class="card">
+          <span class="tag">300 Capsules • Flagship</span>
+          <h3>Sussex Barn Crew</h3>
+          <p class="meta">5 farm animals + 1 "Golden Barn" chase</p>
+          <p>Mini cow, Highland calf, barn cat, pig, and rooster built for farm kids, country living, and collectors up to age 13.</p>
+        </div>
+        <div class="card">
+          <span class="tag">200 Capsules • Local Craft</span>
+          <h3>Handmade Craft &amp; Keepsakes</h3>
+          <p class="meta">5 craft items + 1 "Signed Maker" chase</p>
+          <p>Small-batch woven bookmarks, beaded charms, stamped wood tokens, wax-seal tags, and mini zines.</p>
+        </div>
+        <div class="card">
+          <span class="tag">250 Capsules • Everyday Utility</span>
+          <h3>Country Utility &amp; Openers</h3>
+          <p class="meta">5 utility/country pulls + 1 "Brass Homestead" chase</p>
+          <p>Keychain bottle openers, mini carabiners, and farm/trail vinyls suited to parents, older teens, and regulars.</p>
+        </div>
+        <div class="card">
+          <span class="tag">250 Capsules • Fandom Niche</span>
+          <h3>K-Pop Fandom Niche</h3>
+          <p class="meta">5 member sets + 1 "Holo Encore" chase</p>
+          <p>Focused collector drop with a rolled vinyl sticker and mini photo strip card for K-Pop fans.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="hosts">
+      <h2>For Sussex Business Owners: Host a Stand</h2>
+      <div class="pitch-box">
+        <p style="margin-top:0;">
+          <strong>Zero cost, zero electricity, and zero restock work:</strong> Amelia's Amusements restores,
+          stocks, cleans, and services the machine while paying your shop a <strong>20% commission</strong>
+          on coin collections (plus optional launch-boost or existing-machine retrofit options).
+        </p>
+        <p style="margin-bottom:0;">
+          Each machine QR code highlights your storefront and connects families with other participating
+          Sussex stops along the route.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Amelia's Amusements • Sussex Borough &amp; Sussex County, NJ • Built for GitHub Pages
+    </div>
+  </footer>
+
+  <script>
+    const STOPS = [
+      {
+        id: "early-american-tavern",
+        name: "Early American Tavern",
+        address: "9 Main St, Sussex, NJ 07461",
+        hours: "Mon–Fri 7:00 AM–11:00 PM; Sat 11:00 AM–11:00 PM",
+        questRole: "South-End Country & Dining Stop",
+        mix: "Country Utility & Openers (keychain bottle openers), Sussex Barn Crew, and 100% dye-free gumballs.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Early+American+Tavern+9+Main+St+Sussex+NJ+07461"
+      },
+      {
+        id: "the-sussex-saloon",
+        name: "The Sussex Saloon (The Billiard Place)",
+        address: "15-17 Main St, Sussex, NJ 07461",
+        hours: "Wed–Thu 4:00 PM–11:00 PM; Fri–Sat 4:00 PM–12:00 AM; Sun 4:00 PM–10:00 PM (Mon–Tue Closed)",
+        questRole: "Billiard, Grill & Hangout Stop",
+        mix: "Country Utility & Openers, K-Pop Fandom Niche drops, and 100% dye-free gumballs.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Sussex+Saloon+15-17+Main+St+Sussex+NJ+07461"
+      },
+      {
+        id: "main-street-barbers",
+        name: "Main Street Barbers",
+        address: "49/51 Main St, Sussex, NJ 07461",
+        hours: "Tue, Wed, Fri, Sat & Sun hours vary (Closed Mon)",
+        questRole: "Mid-Block Barbershop Stop",
+        mix: "Sussex Barn Crew farm critters, Handmade Craft & Keepsakes, and 100% dye-free gumballs for waiting families.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Main+Street+Barbers+49+Main+St+Sussex+NJ+07461"
+      },
+      {
+        id: "lorenzos-pizzeria",
+        name: "Lorenzo's Pizzeria & Restaurant",
+        address: "67 Main St, Sussex, NJ 07461",
+        hours: "Daily 11:00 AM–9:00 PM",
+        questRole: "Family Pizza & Takeout Lobby Stop",
+        mix: "Sussex Barn Crew, K-Pop Fandom Niche mystery capsules, and 100% dye-free gumballs during order waits.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Lorenzo%27s+Pizzeria+%26+Restaurant+67+Main+St+Sussex+NJ+07461"
+      }
+    ];
+
+    function buildStopQrUrl(stopId) {
+      try {
+        const base = new URL(window.location.href);
+        base.search = "";
+        base.hash = "";
+        base.searchParams.set("stop", stopId);
+        base.searchParams.set("utm_source", "vending_qr");
+        base.searchParams.set("utm_medium", "machine_decal");
+        base.searchParams.set("utm_campaign", "sussex_county_wave1");
+        return base.toString();
+      } catch (e) {
+        return "https://mattmedia91.github.io/?stop=" + encodeURIComponent(stopId);
+      }
+    }
+
+    function renderStopCards() {
+      const grid = document.getElementById("locations-grid");
+      if (!grid) return;
+      grid.innerHTML = "";
+
+      const params = new URLSearchParams(window.location.search);
+      const scannedId = params.get("stop");
+      const matchedStop = STOPS.find((s) => s.id === scannedId);
+
+      if (matchedStop) {
+        const banner = document.getElementById("scanned-stop-banner");
+        if (banner) {
+          banner.innerHTML =
+            "<strong>You scanned the machine at " +
+            matchedStop.name +
+            "!</strong> " +
+            matchedStop.mix +
+            ' <a href="' +
+            matchedStop.mapsUrl +
+            '" target="_blank" rel="noopener">Open in Google Maps</a>';
+          banner.classList.add("visible");
+        }
+      }
+
+      STOPS.forEach((stop) => {
+        const qrTarget = buildStopQrUrl(stop.id);
+        const article = document.createElement("article");
+        article.className = "card";
+        article.innerHTML =
+          '<span class="tag">' +
+          stop.questRole +
+          "</span>" +
+          "<h3>" +
+          stop.name +
+          "</h3>" +
+          '<div class="meta"><strong>Address:</strong> ' +
+          stop.address +
+          "<br><strong>Hours:</strong> " +
+          stop.hours +
+          "</div>" +
+          "<p>" +
+          stop.mix +
+          "</p>" +
+          '<a class="btn" href="' +
+          stop.mapsUrl +
+          '" target="_blank" rel="noopener">Google Maps Directions</a>' +
+          '<div class="qr-box">' +
+          '<div id="qr-' +
+          stop.id +
+          '" class="qr-code"><a href="' +
+          qrTarget +
+          '">QR Link</a></div>' +
+          '<div style="font-size:0.82rem; color:var(--muted);">' +
+          "<strong>Machine QR (" +
+          stop.id +
+          ")</strong><br>" +
+          '<span style="word-break:break-all;">' +
+          qrTarget +
+          "</span></div></div>";
+        grid.appendChild(article);
+      });
+    }
+
+    function generateQrImages() {
+      if (!window.QRCode) return;
+      STOPS.forEach((stop) => {
+        const el = document.getElementById("qr-" + stop.id);
+        if (!el) return;
+        try {
+          el.innerHTML = "";
+          new QRCode(el, {
+            text: buildStopQrUrl(stop.id),
+            width: 88,
+            height: 88,
+            correctLevel: QRCode.CorrectLevel.M
+          });
+        } catch (e) {
+          el.innerHTML = '<a href="' + buildStopQrUrl(stop.id) + '">QR Link</a>';
+        }
+      });
+    }
+
+    renderStopCards();
+
+    const qrScript = document.createElement("script");
+    qrScript.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
+    qrScript.onload = generateQrImages;
+    document.head.appendChild(qrScript);
+  </script>
+</body>
+</html>
