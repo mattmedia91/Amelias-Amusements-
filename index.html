@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amelia's Amusements | Sussex County Country Drops &amp; Main Street Quest</title>
+  <meta
+    name="description"
+    content="Sussex County, NJ vending stands featuring Sussex Barn Crew farm plushies, handmade craft keepsakes, keychain bottle openers, K-Pop niche drops, and 100% dye-free gumballs."
+  />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://ameliasamusements.github.io/#business",
+          "name": "Amelia's Amusements",
+          "description": "Country-rooted, locally restored coin stands in Sussex County, NJ featuring Sussex Barn Crew farm collectibles, handmade craft keepsakes, keychain bottle openers, a focused K-Pop niche set, and 100% dye-free gumballs.",
+          "url": "https://ameliasamusements.github.io/",
+          "areaServed": [
+            {
+              "@type": "AdministrativeArea",
+              "name": "Sussex County, New Jersey"
+            },
+            {
+              "@type": "City",
+              "name": "Sussex Borough, New Jersey"
+            },
+            {
+              "@type": "Place",
+              "name": "Wantage, New Jersey"
+            }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Wantage",
+            "addressRegion": "NJ",
+            "postalCode": "07461",
+            "addressCountry": "US"
+          },
+          "knowsAbout": [
+            "Sussex Barn Crew",
+            "Handmade Craft Keepsakes",
+            "Keychain Bottle Openers",
+            "K-Pop Fandom Niche",
+            "100% Dye-Free Gumballs",
+            "Main Street Family Treasure Quest"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://ameliasamusements.github.io/#webpage",
+          "url": "https://ameliasamusements.github.io/",
+          "name": "Amelia's Amusements — Sussex County Country Drops & Main Street Quest",
+          "description": "Scan a machine QR code to see active collections, 100% dye-free gumballs, and participating Main Street stops in Sussex, NJ.",
+          "about": {
+            "@id": "https://ameliasamusements.github.io/#business"
+          },
+          "mainEntity": {
+            "@id": "https://ameliasamusements.github.io/#route-list"
+          }
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://ameliasamusements.github.io/#route-list",
+          "name": "Sussex Main Street Starter Route Stops",
+          "description": "Initial Main Street host stops for Amelia's Amusements stands and family quest scans.",
+          "numberOfItems": 4,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "LocalBusiness",
+                "name": "Early American Tavern",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "9 Main St",
+                  "addressLocality": "Sussex",
+                  "addressRegion": "NJ",
+                  "postalCode": "07461",
+                  "addressCountry": "US"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "LocalBusiness",
+                "name": "The Sussex Saloon",
+                "alternateName": "The Billiard Place",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "15-17 Main St",
+                  "addressLocality": "Sussex",
+                  "addressRegion": "NJ",
+                  "postalCode": "07461",
+                  "addressCountry": "US"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "LocalBusiness",
+                "name": "Main Street Barbers",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "49/51 Main St",
+                  "addressLocality": "Sussex",
+                  "addressRegion": "NJ",
+                  "postalCode": "07461",
+                  "addressCountry": "US"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "LocalBusiness",
+                "name": "Lorenzo's Pizzeria & Restaurant",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "67 Main St",
+                  "addressLocality": "Sussex",
+                  "addressRegion": "NJ",
+                  "postalCode": "07461",
+                  "addressCountry": "US"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --surface: #fcfaf5;
+      --ink: #231f1c;
+      --muted: #5c5349;
+      --barn: #8c2f27;
+      --barn-dark: #66201a;
+      --pine: #2f5241;
+      --brass: #b8862d;
+      --border: #ddd3c0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    h1, h2, h3, .pill, .btn, .tag, .badge, .meta, .qr-box, footer {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    header.hero {
+      background: linear-gradient(135deg, var(--barn-dark), var(--barn));
+      color: #fbf7ef;
+      padding: 2.5rem 1.25rem;
+      border-bottom: 5px solid var(--brass);
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(251, 247, 239, 0.14);
+      border: 1px solid rgba(251, 247, 239, 0.35);
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      margin: 0 0 0.6rem;
+      font-size: clamp(1.85rem, 4vw, 2.75rem);
+      line-height: 1.15;
+    }
+
+    .lead {
+      margin: 0 0 1.25rem;
+      max-width: 68ch;
+      font-size: 1.05rem;
+      color: #f6efe2;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      background: #fbf7ef;
+      color: var(--barn-dark);
+      font-weight: 700;
+      font-size: 0.84rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--brass);
+    }
+
+    .active-banner {
+      display: none;
+      margin-top: 1.5rem;
+      background: #fdf6e4;
+      border: 2px solid var(--brass);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .active-banner.visible { display: block; }
+
+    section { padding: 2rem 0; }
+
+    h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1.55rem;
+      color: var(--barn-dark);
+    }
+
+    .section-sub {
+      margin: 0 0 1.25rem;
+      color: var(--muted);
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+      gap: 1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.2rem;
+      box-shadow: 0 2px 8px rgba(35, 31, 28, 0.05);
+    }
+
+    .card h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.15rem;
+    }
+
+    .meta {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      background: #e9f0ec;
+      color: var(--pine);
+      margin-bottom: 0.6rem;
+    }
+
+    .qr-box {
+      margin-top: 0.9rem;
+      padding-top: 0.9rem;
+      border-top: 1px dashed var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .qr-code {
+      width: 96px;
+      height: 96px;
+      flex: 0 0 96px;
+      background: #ffffff;
+      padding: 4px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .qr-code img { width: 100%; height: 100%; display: block; }
+
+    .btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: var(--pine);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 8px;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .btn:hover { background: var(--barn-dark); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--barn-dark);
+      border:
