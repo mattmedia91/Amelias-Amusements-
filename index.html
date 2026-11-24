@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amelia's Amusements | Sussex County Country Drops &amp; Main Street Quest</title>
+  <title>Amelia's Amusements | Country Arcade &amp; Sussex Route</title>
   <meta
     name="description"
-    content="Sussex County, NJ vending stands featuring Sussex Barn Crew farm plushies, handmade craft keepsakes, keychain bottle openers, K-Pop niche drops, and 100% dye-free gumballs."
+    content="Country arcade vending stands in Sussex County, NJ with the Farm Collection, K-Pop drops, utility keychains, and dye-free gumballs."
   />
   <script type="application/ld+json">
     {
@@ -16,44 +16,82 @@
           "@type": "LocalBusiness",
           "@id": "https://mattmedia91.github.io/#business",
           "name": "Amelia's Amusements",
-          "description": "Country-rooted, locally restored coin stands in Sussex County, NJ featuring Sussex Barn Crew farm collectibles, handmade craft keepsakes, keychain bottle openers, a focused K-Pop niche set, and 100% dye-free gumballs.",
+          "description": "Country arcade vending route in Sussex County, NJ featuring the Farm Collection, K-Pop drops, utility keychains, and dye-free gumballs.",
           "url": "https://mattmedia91.github.io/",
           "areaServed": [
+            { "@type": "City", "name": "Sussex Borough, New Jersey" },
+            { "@type": "Place", "name": "Wantage, New Jersey" },
+            { "@type": "AdministrativeArea", "name": "Sussex County, New Jersey" }
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://mattmedia91.github.io/#route-list",
+          "name": "Sussex & Wantage Starter Route Stops",
+          "numberOfItems": 5,
+          "itemListElement": [
             {
-              "@type": "AdministrativeArea",
-              "name": "Sussex County, New Jersey"
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "LocalBusiness",
+                "name": "Early American Tavern",
+                "address": { "@type": "PostalAddress", "streetAddress": "9 Main St", "addressLocality": "Sussex", "addressRegion": "NJ", "postalCode": "07461" }
+              }
             },
             {
-              "@type": "City",
-              "name": "Sussex Borough, New Jersey"
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "LocalBusiness",
+                "name": "The Sussex Saloon",
+                "address": { "@type": "PostalAddress", "streetAddress": "15-17 Main St", "addressLocality": "Sussex", "addressRegion": "NJ", "postalCode": "07461" }
+              }
             },
             {
-              "@type": "Place",
-              "name": "Wantage, New Jersey"
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "LocalBusiness",
+                "name": "Main Street Barbers",
+                "address": { "@type": "PostalAddress", "streetAddress": "49/51 Main St", "addressLocality": "Sussex", "addressRegion": "NJ", "postalCode": "07461" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "LocalBusiness",
+                "name": "Lorenzo's Pizzeria & Restaurant",
+                "address": { "@type": "PostalAddress", "streetAddress": "67 Main St", "addressLocality": "Sussex", "addressRegion": "NJ", "postalCode": "07461" }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@type": "GasStation",
+                "name": "Lukoil",
+                "address": { "@type": "PostalAddress", "streetAddress": "721 NJ-23", "addressLocality": "Wantage", "addressRegion": "NJ", "postalCode": "07461" }
+              }
             }
-          ],
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Wantage",
-            "addressRegion": "NJ",
-            "postalCode": "07461",
-            "addressCountry": "US"
-          }
+          ]
         }
       ]
     }
   </script>
   <style>
     :root {
-      --bg: #f4efe4;
-      --surface: #fcfaf5;
-      --ink: #231f1c;
-      --muted: #5c5349;
-      --barn: #8c2f27;
-      --barn-dark: #66201a;
-      --pine: #2f5241;
-      --brass: #b8862d;
-      --border: #ddd3c0;
+      --bg: #f5efe2;
+      --surface: #fffdf8;
+      --ink: #221c18;
+      --muted: #5b5147;
+      --barn: #8f2d24;
+      --barn-dark: #631c16;
+      --pine: #2c5540;
+      --brass: #c48e29;
+      --arcade-amber: #f5b727;
+      --border: #d9ccb6;
     }
 
     * { box-sizing: border-box; }
@@ -63,48 +101,51 @@
       font-family: Georgia, "Times New Roman", serif;
       background: var(--bg);
       color: var(--ink);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
-    h1, h2, h3, .pill, .btn, .tag, .badge, .meta, .qr-box, footer {
+    h1, h2, h3, .badge, .pill, .tag, .btn, .meta, .qr-box, footer {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
     header.hero {
       background: linear-gradient(135deg, var(--barn-dark), var(--barn));
-      color: #fbf7ef;
+      color: #fffaf0;
       padding: 2.25rem 1.25rem;
-      border-bottom: 5px solid var(--brass);
+      border-bottom: 6px solid var(--arcade-amber);
+      box-shadow: inset 0 -3px 0 var(--brass);
     }
 
     .container {
-      max-width: 1040px;
+      max-width: 1060px;
       margin: 0 auto;
       padding: 0 1rem;
     }
 
     .badge {
       display: inline-block;
-      background: rgba(251, 247, 239, 0.14);
-      border: 1px solid rgba(251, 247, 239, 0.35);
+      background: var(--arcade-amber);
+      color: var(--barn-dark);
       padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
       margin-bottom: 0.75rem;
     }
 
     h1 {
-      margin: 0 0 0.6rem;
-      font-size: clamp(1.85rem, 4vw, 2.75rem);
-      line-height: 1.15;
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.9rem, 4.2vw, 2.85rem);
+      line-height: 1.12;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
     }
 
     .lead {
-      margin: 0 0 1.25rem;
-      max-width: 68ch;
+      margin: 0 0 1.2rem;
+      max-width: 66ch;
       font-size: 1.05rem;
-      color: #f6efe2;
+      color: #fff6e5;
     }
 
     .pill-row {
@@ -114,20 +155,20 @@
     }
 
     .pill {
-      background: #fbf7ef;
+      background: #fffaf0;
       color: var(--barn-dark);
       font-weight: 700;
       font-size: 0.84rem;
       padding: 0.35rem 0.75rem;
       border-radius: 8px;
-      border: 1px solid var(--brass);
+      border: 2px solid var(--brass);
     }
 
     .active-banner {
       display: none;
       margin-top: 1.5rem;
-      background: #fdf6e4;
-      border: 2px solid var(--brass);
+      background: #fff3cf;
+      border: 2px solid var(--arcade-amber);
       border-radius: 12px;
       padding: 1rem 1.25rem;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -138,7 +179,7 @@
     section { padding: 2rem 0; }
 
     h2 {
-      margin: 0 0 0.4rem;
+      margin: 0 0 0.35rem;
       font-size: 1.55rem;
       color: var(--barn-dark);
     }
@@ -162,10 +203,11 @@
 
     .card {
       background: var(--surface);
-      border: 1px solid var(--border);
+      border: 2px solid var(--border);
+      border-top: 4px solid var(--brass);
       border-radius: 14px;
       padding: 1.2rem;
-      box-shadow: 0 2px 8px rgba(35, 31, 28, 0.05);
+      box-shadow: 0 3px 0 rgba(34, 28, 24, 0.08);
     }
 
     .card h3 { margin: 0 0 0.35rem; font-size: 1.15rem; }
@@ -178,11 +220,11 @@
 
     .tag {
       display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 700;
+      font-size: 0.76rem;
+      font-weight: 800;
       padding: 0.2rem 0.6rem;
       border-radius: 6px;
-      background: #e9f0ec;
+      background: #e6f0ea;
       color: var(--pine);
       margin-bottom: 0.6rem;
     }
@@ -190,7 +232,7 @@
     .qr-box {
       margin-top: 0.9rem;
       padding-top: 0.9rem;
-      border-top: 1px dashed var(--border);
+      border-top: 2px dashed var(--border);
       display: flex;
       align-items: center;
       gap: 0.9rem;
@@ -202,7 +244,7 @@
       flex: 0 0 96px;
       background: #ffffff;
       padding: 4px;
-      border: 1px solid var(--border);
+      border: 2px solid var(--brass);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -219,7 +261,7 @@
       background: var(--pine);
       color: #ffffff;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.88rem;
       padding: 0.45rem 0.8rem;
       border-radius: 8px;
@@ -227,30 +269,31 @@
       cursor: pointer;
     }
 
-    .btn:hover { background: var(--barn-dark); }
+    .btn:hover { background: var(--barn); }
 
     .btn-outline {
-      background: transparent;
+      background: #fffaf0;
       color: var(--barn-dark);
-      border: 1px solid var(--barn);
+      border: 2px solid var(--barn);
     }
 
     .pitch-box {
       background: var(--surface);
-      border-left: 5px solid var(--pine);
+      border-left: 6px solid var(--arcade-amber);
       border-radius: 12px;
       padding: 1.25rem 1.4rem;
-      border-top: 1px solid var(--border);
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      border-top: 2px solid var(--border);
+      border-right: 2px solid var(--border);
+      border-bottom: 2px solid var(--border);
     }
 
     footer {
-      background: #231f1c;
-      color: #e6dfd3;
+      background: #221c18;
+      color: #efe7d8;
       padding: 1.5rem 1rem;
       font-size: 0.9rem;
       margin-top: 2rem;
+      border-top: 4px solid var(--brass);
     }
 
     @media print {
@@ -262,18 +305,17 @@
 <body>
   <header class="hero">
     <div class="container">
-      <div class="badge">SUSSEX COUNTY, NJ • COUNTRY DROPS &amp; MAIN STREET QUEST</div>
+      <div class="badge">COUNTRY ARCADE • SUSSEX &amp; WANTAGE, NJ</div>
       <h1>Amelia's Amusements</h1>
       <p class="lead">
-        Country-rooted, locally restored coin stands made for Sussex County families and visitors—
-        featuring Sussex Barn Crew farm plushies, handmade craft keepsakes, keychain bottle openers,
-        a focused K-Pop niche set, and <strong>100% dye-free gumballs</strong> at every stop.
+        Old-school country arcade stands across Sussex and Wantage with squishy <strong>Farm Collection</strong>
+        capsules, chase pulls, K-Pop niche drops, utility keychains, and <strong>dye-free gumballs</strong>.
       </p>
       <div class="pill-row">
-        <span class="pill">Sussex Barn Crew</span>
-        <span class="pill">Handmade Craft Keepsakes</span>
+        <span class="pill">Farm Collection + Chase Pulls</span>
+        <span class="pill">Country Arcade Quests</span>
         <span class="pill">Keychain Bottle Openers</span>
-        <span class="pill">K-Pop Niche • 100% Dye-Free Gum</span>
+        <span class="pill">Dye-Free Gumballs</span>
       </div>
     </div>
   </header>
@@ -284,10 +326,9 @@
     <section id="route">
       <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:0.75rem;">
         <div>
-          <h2>First 4 Sussex Main Street Stops &amp; Location QR Codes</h2>
+          <h2>5-Stop Starter Route &amp; Machine QR Codes</h2>
           <p class="section-sub">
-            Each machine carries its own QR code tagged to that stop so families can trace the route
-            and you can track where scans happen first.
+            Scan any machine decal to highlight that stop and track family quests across Sussex and Wantage.
           </p>
         </div>
         <button class="btn btn-outline no-print" onclick="window.print()">Print QR Cards</button>
@@ -296,49 +337,47 @@
     </section>
 
     <section id="collections">
-      <h2>First-Wave Country &amp; Collector Sets</h2>
+      <h2>Arcade Quest Collections</h2>
       <p class="section-sub">
-        Four 6-item collections (5 regular pulls + 1 rare chase pull), always paired with 100% dye-free gumballs.
+        Every stand pairs 5-item regular drops + rare chase pulls with dye-free gumballs.
       </p>
       <div class="grid-4">
         <div class="card">
-          <span class="tag">300 Capsules • Flagship</span>
-          <h3>Sussex Barn Crew</h3>
-          <p class="meta">5 farm animals + 1 "Golden Barn" chase</p>
-          <p>Mini cow, Highland calf, barn cat, pig, and rooster built for farm kids, country living, and collectors up to age 13.</p>
+          <span class="tag">Flagship • 1" Capsules</span>
+          <h3>Farm Collection</h3>
+          <p class="meta">Pig, Rooster, Sheep, Bull, Cow + Chase Tiers</p>
+          <p>Squishy farm animals (plus Horse, Goat, Ostrich, Llama, and Bee in the mix) with online game codes and rare chase pulls.</p>
         </div>
         <div class="card">
-          <span class="tag">200 Capsules • Local Craft</span>
-          <h3>Handmade Craft &amp; Keepsakes</h3>
-          <p class="meta">5 craft items + 1 "Signed Maker" chase</p>
-          <p>Small-batch woven bookmarks, beaded charms, stamped wood tokens, wax-seal tags, and mini zines.</p>
-        </div>
-        <div class="card">
-          <span class="tag">250 Capsules • Everyday Utility</span>
+          <span class="tag">Country Gear • Utility</span>
           <h3>Country Utility &amp; Openers</h3>
-          <p class="meta">5 utility/country pulls + 1 "Brass Homestead" chase</p>
-          <p>Keychain bottle openers, mini carabiners, and farm/trail vinyls suited to parents, older teens, and regulars.</p>
+          <p class="meta">Keychain bottle openers + trail/farm pulls</p>
+          <p>Handy bottle openers, mini clips, and country stickers for parents, teens, and regulars.</p>
         </div>
         <div class="card">
-          <span class="tag">250 Capsules • Fandom Niche</span>
+          <span class="tag">Fandom • Collector Drop</span>
           <h3>K-Pop Fandom Niche</h3>
-          <p class="meta">5 member sets + 1 "Holo Encore" chase</p>
-          <p>Focused collector drop with a rolled vinyl sticker and mini photo strip card for K-Pop fans.</p>
+          <p class="meta">5 member sets + rare chase pull</p>
+          <p>Compact member photo and sticker drops for fans hunting the full set.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Small-Batch • Craft</span>
+          <h3>Handmade Craft &amp; Keepsakes</h3>
+          <p class="meta">5 craft pulls + rare maker chase</p>
+          <p>Mini woven bookmarks, beaded charms, stamped wood tokens, wax-seal tags, and mini zines.</p>
         </div>
       </div>
     </section>
 
     <section id="hosts">
-      <h2>For Sussex Business Owners: Host a Stand</h2>
+      <h2>Host a Stand in Sussex or Wantage</h2>
       <div class="pitch-box">
         <p style="margin-top:0;">
-          <strong>Zero cost, zero electricity, and zero restock work:</strong> Amelia's Amusements restores,
-          stocks, cleans, and services the machine while paying your shop a <strong>20% commission</strong>
-          on coin collections (plus optional launch-boost or existing-machine retrofit options).
+          <strong>Zero cost, zero power needed, and full service:</strong> Amelia's Amusements cleans, stocks,
+          and maintains each stand while paying your shop a <strong>20% commission</strong> on coin collections.
         </p>
         <p style="margin-bottom:0;">
-          Each machine QR code highlights your storefront and connects families with other participating
-          Sussex stops along the route.
+          Your shop gets featured on our live QR route so families scanning at one stop can spot your location too.
         </p>
       </div>
     </section>
@@ -346,7 +385,7 @@
 
   <footer>
     <div class="container">
-      Amelia's Amusements • Sussex Borough &amp; Sussex County, NJ • Built for GitHub Pages
+      Amelia's Amusements • Sussex &amp; Wantage, NJ • Country Arcade Vending Route
     </div>
   </footer>
 
@@ -358,25 +397,25 @@
         address: "9 Main St, Sussex, NJ 07461",
         hours: "Mon–Fri 7:00 AM–11:00 PM; Sat 11:00 AM–11:00 PM",
         questRole: "South-End Country & Dining Stop",
-        mix: "Country Utility & Openers (keychain bottle openers), Sussex Barn Crew, and 100% dye-free gumballs.",
+        mix: "Country Utility & Openers, Farm Collection capsules, and dye-free gumballs.",
         mapsUrl: "https://www.google.com/maps/search/?api=1&query=Early+American+Tavern+9+Main+St+Sussex+NJ+07461"
       },
       {
         id: "the-sussex-saloon",
-        name: "The Sussex Saloon (The Billiard Place)",
+        name: "The Sussex Saloon",
         address: "15-17 Main St, Sussex, NJ 07461",
         hours: "Wed–Thu 4:00 PM–11:00 PM; Fri–Sat 4:00 PM–12:00 AM; Sun 4:00 PM–10:00 PM (Mon–Tue Closed)",
-        questRole: "Billiard, Grill & Hangout Stop",
-        mix: "Country Utility & Openers, K-Pop Fandom Niche drops, and 100% dye-free gumballs.",
+        questRole: "Billiard & Hangout Stop",
+        mix: "Country Utility & Openers, K-Pop Fandom Niche drops, and dye-free gumballs.",
         mapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Sussex+Saloon+15-17+Main+St+Sussex+NJ+07461"
       },
       {
         id: "main-street-barbers",
         name: "Main Street Barbers",
         address: "49/51 Main St, Sussex, NJ 07461",
-        hours: "Tue, Wed, Fri, Sat & Sun hours vary (Closed Mon)",
-        questRole: "Mid-Block Barbershop Stop",
-        mix: "Sussex Barn Crew farm critters, Handmade Craft & Keepsakes, and 100% dye-free gumballs for waiting families.",
+        hours: "Tue–Sun hours vary (Closed Mon)",
+        questRole: "Barbershop Stop",
+        mix: "Farm Collection squishies, Handmade Craft & Keepsakes, and dye-free gumballs.",
         mapsUrl: "https://www.google.com/maps/search/?api=1&query=Main+Street+Barbers+49+Main+St+Sussex+NJ+07461"
       },
       {
@@ -384,9 +423,18 @@
         name: "Lorenzo's Pizzeria & Restaurant",
         address: "67 Main St, Sussex, NJ 07461",
         hours: "Daily 11:00 AM–9:00 PM",
-        questRole: "Family Pizza & Takeout Lobby Stop",
-        mix: "Sussex Barn Crew, K-Pop Fandom Niche mystery capsules, and 100% dye-free gumballs during order waits.",
+        questRole: "Family Pizza & Takeout Stop",
+        mix: "Farm Collection capsules, K-Pop Fandom Niche drops, and dye-free gumballs.",
         mapsUrl: "https://www.google.com/maps/search/?api=1&query=Lorenzo%27s+Pizzeria+%26+Restaurant+67+Main+St+Sussex+NJ+07461"
+      },
+      {
+        id: "lukoil-wantage",
+        name: "Lukoil",
+        address: "721 NJ-23, Wantage, NJ 07461",
+        hours: "Mon–Sun 5:00 AM–12:00 AM",
+        questRole: "Route 23 Road-Trip & Fuel Stop",
+        mix: "Farm Collection capsules, Country Utility & Openers, and dye-free gumballs.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Lukoil+721+NJ-23+Wantage+NJ+07461"
       }
     ];
 
@@ -398,7 +446,7 @@
         base.searchParams.set("stop", stopId);
         base.searchParams.set("utm_source", "vending_qr");
         base.searchParams.set("utm_medium", "machine_decal");
-        base.searchParams.set("utm_campaign", "sussex_county_wave1");
+        base.searchParams.set("utm_campaign", "sussex_wantage_arcade");
         return base.toString();
       } catch (e) {
         return "https://mattmedia91.github.io/?stop=" + encodeURIComponent(stopId);
@@ -424,7 +472,7 @@
             matchedStop.mix +
             ' <a href="' +
             matchedStop.mapsUrl +
-            '" target="_blank" rel="noopener">Open in Google Maps</a>';
+            '" target="_blank" rel="noopener">Google Maps</a>';
           banner.classList.add("visible");
         }
       }
@@ -458,7 +506,7 @@
           qrTarget +
           '">QR Link</a></div>' +
           '<div style="font-size:0.82rem; color:var(--muted);">' +
-          "<strong>Machine QR (" +
+          "<strong>QR (" +
           stop.id +
           ")</strong><br>" +
           '<span style="word-break:break-all;">' +
