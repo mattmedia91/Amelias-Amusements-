@@ -1,892 +1,103 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amelia's Amusements | Country Arcade &amp; Sussex Route</title>
-  <meta
-    name="description"
-    content="Country arcade vending stands in Sussex &amp; Wantage, NJ featuring the Country Farm Animal Collection, 100% dye-free holistic gumballs, utility keychains, and interactive route map."
-  />
-
-  <!-- Leaflet Interactive Map CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin=""
-  />
-
-  <!-- Local SEO & Structured Route Data -->
+  <meta name="theme-color" content="#14110f" />
+  <title>Country Arcade & Gumballs in Sussex NJ | Amelia's Amusements</title>
+  <meta name="description" content="Explore five country arcade stops in Sussex and Wantage, NJ. Find dye-free gumballs, farm animal capsules, an interactive map, and family treasure hunts." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <link rel="canonical" href="https://mattmedia91.github.io/Amelias-Amusements-/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Amelia's Amusements" />
+  <meta property="og:title" content="Country Arcade & Gumballs in Sussex NJ | Amelia's Amusements" />
+  <meta property="og:description" content="Five local stops. Ten farm friends. One family treasure route through Sussex and Wantage, NJ." />
+  <meta property="og:url" content="https://mattmedia91.github.io/Amelias-Amusements-/" />
+  <meta property="og:image" content="https://mattmedia91.github.io/Amelias-Amusements-/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Country Arcade & Gumballs in Sussex NJ | Amelia's Amusements" />
+  <meta name="twitter:description" content="Five local stops. Ten farm friends. One family treasure route through Sussex and Wantage, NJ." />
+  <meta name="twitter:image" content="https://mattmedia91.github.io/Amelias-Amusements-/og-image.png" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2314110f'/%3E%3Cpath d='M9 27 32 8l23 19' fill='none' stroke='%23c93b2b' stroke-width='6'/%3E%3Cpath d='M15 25h34v29H15z' fill='%231e1916' stroke='%23f5b727' stroke-width='2.5'/%3E%3Ccircle cx='32' cy='34' r='12' fill='%2314110f' stroke='%23f5b727' stroke-width='2.5'/%3E%3Ccircle cx='27' cy='31' r='3.2' fill='%23c93b2b'/%3E%3Ccircle cx='35' cy='29' r='3' fill='%23f7f1e3'/%3E%3Ccircle cx='37' cy='37' r='3.4' fill='%232e6f4e'/%3E%3Ccircle cx='28' cy='39' r='2.8' fill='%23f5b727'/%3E%3Cpath d='M25 48h14v6H25z' fill='%23c93b2b' stroke='%23f5b727' stroke-width='2'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "LocalBusiness",
-          "@id": "https://mattmedia91.github.io/#business",
-          "name": "Amelia's Amusements",
-          "description": "Country arcade vending route in Sussex County, NJ featuring the Country Farm Animal Collection, 100% dye-free holistic gumballs, utility keychains, and handmade keepsakes.",
-          "url": "https://mattmedia91.github.io/",
-          "areaServed": [
-            { "@type": "City", "name": "Sussex Borough, New Jersey" },
-            { "@type": "Place", "name": "Wantage, New Jersey" },
-            { "@type": "AdministrativeArea", "name": "Sussex County, New Jersey" }
-          ]
-        },
-        {
-          "@type": "ItemList",
-          "@id": "https://mattmedia91.github.io/#route-list",
-          "name": "Sussex & Wantage Country Arcade Stops",
-          "numberOfItems": 5,
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "item": {
-                "@type": "LocalBusiness",
-                "name": "Early American Tavern",
-                "address": { "@type": "PostalAddress", "streetAddress": "9 Main St", "addressLocality": "Sussex", "addressRegion": "NJ", "postalCode": "07461" }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "item": {
-                "@type": "LocalBusiness",
-                "name": "The Sussex Saloon",
-                "address": { "@type": "PostalAddress", "streetAddress": "15-17 Main St", "addressLocality": "Sussex", "addressRegion": "NJ", "postalCode": "07461" }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "item": {
-                "@type": "LocalBusiness",
-                "name": "Main Street Barbers",
-                "address": { "@type": "PostalAddress", "streetAddress": "49/51 Main St", "addressLocality": "Sussex", "addressRegion": "NJ", "postalCode": "07461" }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "item": {
-                "@type": "LocalBusiness",
-                "name": "Lorenzo's Pizzeria & Restaurant",
-                "address": { "@type": "PostalAddress", "streetAddress": "67 Main St", "addressLocality": "Sussex", "addressRegion": "NJ", "postalCode": "07461" }
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 5,
-              "item": {
-                "@type": "GasStation",
-                "name": "Lukoil",
-                "address": { "@type": "PostalAddress", "streetAddress": "721 NJ-23", "addressLocality": "Wantage", "addressRegion": "NJ", "postalCode": "07461" }
-              }
-            }
-          ]
-        }
-      ]
-    }
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"LocalBusiness","@id":"https://mattmedia91.github.io/Amelias-Amusements-/#business","name":"Amelia's Amusements","description":"Country arcade vending route in Sussex County, NJ featuring the Country Farm Animal Collection, 100% dye-free holistic gumballs, utility keychains, and handmade keepsakes.","url":"https://mattmedia91.github.io/Amelias-Amusements-/","areaServed":[{"@type":"City","name":"Sussex Borough, New Jersey"},{"@type":"Place","name":"Wantage, New Jersey"},{"@type":"AdministrativeArea","name":"Sussex County, New Jersey"}]},
+      {"@type":"LocalBusiness","@id":"https://mattmedia91.github.io/Amelias-Amusements-/#early-american-tavern","name":"Early American Tavern","description":"Restored non-electric dual-head stand with dye-free gumballs, Country Farm Animal Collection capsules, and keychain bottle openers.","address":{"@type":"PostalAddress","streetAddress":"9 Main St","addressLocality":"Sussex","addressRegion":"NJ","postalCode":"07461","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":41.2096,"longitude":-74.6079}},
+      {"@type":"LocalBusiness","@id":"https://mattmedia91.github.io/Amelias-Amusements-/#the-sussex-saloon","name":"The Sussex Saloon","description":"Restored non-electric dual-head stand with dye-free gumballs, keychain bottle openers, and K-Pop collector drops.","address":{"@type":"PostalAddress","streetAddress":"15-17 Main St","addressLocality":"Sussex","addressRegion":"NJ","postalCode":"07461","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":41.2099,"longitude":-74.6077}},
+      {"@type":"BarberShop","@id":"https://mattmedia91.github.io/Amelias-Amusements-/#main-street-barbers","name":"Main Street Barbers","description":"Restored non-electric dual-head stand with dye-free gumballs, Country Farm Animal Collection capsules, and handmade craft keepsakes.","address":{"@type":"PostalAddress","streetAddress":"49/51 Main St","addressLocality":"Sussex","addressRegion":"NJ","postalCode":"07461","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":41.2108,"longitude":-74.6072}},
+      {"@type":"Restaurant","@id":"https://mattmedia91.github.io/Amelias-Amusements-/#lorenzos-pizzeria","name":"Lorenzo's Pizzeria & Restaurant","description":"Restored non-electric dual-head stand with dye-free gumballs, Country Farm Animal Collection capsules, and K-Pop collector drops.","address":{"@type":"PostalAddress","streetAddress":"67 Main St","addressLocality":"Sussex","addressRegion":"NJ","postalCode":"07461","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":41.2113,"longitude":-74.6069}},
+      {"@type":"GasStation","@id":"https://mattmedia91.github.io/Amelias-Amusements-/#lukoil-wantage","name":"Lukoil","description":"Restored non-electric dual-head stand with dye-free gumballs, Country Farm Animal Collection capsules, and Country Utility keychains.","address":{"@type":"PostalAddress","streetAddress":"721 NJ-23","addressLocality":"Wantage","addressRegion":"NJ","postalCode":"07461","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":41.2248,"longitude":-74.6145}},
+      {"@type":"ItemList","@id":"https://mattmedia91.github.io/Amelias-Amusements-/#route-list","name":"Sussex & Wantage Country Arcade Stops","numberOfItems":5,"itemListElement":[
+        {"@type":"ListItem","position":1,"item":{"@id":"https://mattmedia91.github.io/Amelias-Amusements-/#early-american-tavern"}},
+        {"@type":"ListItem","position":2,"item":{"@id":"https://mattmedia91.github.io/Amelias-Amusements-/#the-sussex-saloon"}},
+        {"@type":"ListItem","position":3,"item":{"@id":"https://mattmedia91.github.io/Amelias-Amusements-/#main-street-barbers"}},
+        {"@type":"ListItem","position":4,"item":{"@id":"https://mattmedia91.github.io/Amelias-Amusements-/#lorenzos-pizzeria"}},
+        {"@type":"ListItem","position":5,"item":{"@id":"https://mattmedia91.github.io/Amelias-Amusements-/#lukoil-wantage"}}
+      ]}
+    ]
+  }
   </script>
-
   <style>
-    :root {
-      --bg: #f4ede0;
-      --surface: #fffdf8;
-      --surface-alt: #faf4e6;
-      --ink: #1f1916;
-      --muted: #5a4f45;
-      --barn: #8f2920;
-      --barn-dark: #5c1610;
-      --pine: #25523b;
-      --pine-dark: #183828;
-      --brass: #c28725;
-      --arcade-gold: #ffbe2e;
-      --arcade-glow: rgba(255, 190, 46, 0.35);
-      --border: #d8c8ae;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      background-color: var(--bg);
-      background-image: radial-gradient(rgba(143, 41, 32, 0.06) 1px, transparent 1px);
-      background-size: 18px 18px;
-      color: var(--ink);
-      line-height: 1.55;
-    }
-
-    h1, h2, h3, .badge, .pill, .tag, .btn, .meta, .marquee-strip, .stat-chip, footer {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-
-    /* Country Arcade Marquee Header */
-    header.hero {
-      background: linear-gradient(145deg, var(--barn-dark) 0%, var(--barn) 65%, #a63429 100%);
-      color: #fffaf0;
-      padding: 2rem 1.25rem 2.4rem;
-      border-bottom: 6px solid var(--arcade-gold);
-      box-shadow: 0 6px 20px rgba(31, 25, 22, 0.22);
-      position: relative;
-    }
-
-    .marquee-lights {
-      display: flex;
-      justify-content: center;
-      gap: 0.65rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .bulb {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: var(--arcade-gold);
-      box-shadow: 0 0 8px var(--arcade-gold), 0 0 14px var(--arcade-glow);
-      border: 1px solid #fff5d6;
-    }
-
-    .bulb:nth-child(even) {
-      background: #fff3c4;
-      opacity: 0.9;
-    }
-
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .badge {
-      display: inline-block;
-      background: var(--arcade-gold);
-      color: var(--barn-dark);
-      padding: 0.3rem 0.85rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
-      margin-bottom: 0.75rem;
-    }
-
-    h1 {
-      margin: 0 0 0.55rem;
-      font-size: clamp(2rem, 4.6vw, 3.1rem);
-      font-weight: 900;
-      letter-spacing: -0.01em;
-      line-height: 1.08;
-      text-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
-    }
-
-    .lead {
-      margin: 0 0 1.25rem;
-      max-width: 66ch;
-      font-size: 1.08rem;
-      color: #fff6e5;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-    }
-
-    .pill {
-      background: #fffaf0;
-      color: var(--barn-dark);
-      font-weight: 800;
-      font-size: 0.84rem;
-      padding: 0.4rem 0.8rem;
-      border-radius: 8px;
-      border: 2px solid var(--arcade-gold);
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-    }
-
-    .active-banner {
-      display: none;
-      margin-top: 1.5rem;
-      background: #fff3cf;
-      border: 3px solid var(--arcade-gold);
-      border-radius: 14px;
-      padding: 1rem 1.25rem;
-      box-shadow: 0 4px 12px rgba(31, 25, 22, 0.1);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-
-    .active-banner.visible { display: block; }
-
-    section { padding: 2.1rem 0; }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 1.15rem;
-    }
-
-    h2 {
-      margin: 0 0 0.3rem;
-      font-size: 1.65rem;
-      font-weight: 900;
-      color: var(--barn-dark);
-    }
-
-    .section-sub {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    /* Interactive Arcade Map Frame */
-    .map-cabinet {
-      background: var(--surface);
-      border: 3px solid var(--barn-dark);
-      border-top: 6px solid var(--arcade-gold);
-      border-radius: 16px;
-      padding: 0.9rem;
-      box-shadow: 0 6px 0 rgba(92, 22, 16, 0.16);
-      margin-bottom: 1.5rem;
-    }
-
-    .map-toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-bottom: 0.75rem;
-      align-items: center;
-    }
-
-    .map-toolbar-label {
-      font-size: 0.82rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      color: var(--barn-dark);
-      margin-right: 0.25rem;
-    }
-
-    .map-chip {
-      background: var(--surface-alt);
-      color: var(--ink);
-      border: 2px solid var(--border);
-      border-radius: 999px;
-      padding: 0.32rem 0.75rem;
-      font-size: 0.82rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    .map-chip:hover, .map-chip.active {
-      background: var(--pine);
-      color: #ffffff;
-      border-color: var(--pine-dark);
-    }
-
-    #arcade-map {
-      width: 100%;
-      height: 360px;
-      border-radius: 10px;
-      border: 2px solid var(--border);
-      background: #e9e3d5;
-      z-index: 1;
-    }
-
-    /* Featured Spotlight Pair: Farm Animals + Holistic Gumballs */
-    .spotlight-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .spotlight-card {
-      background: var(--surface);
-      border: 2px solid var(--brass);
-      border-top: 6px solid var(--barn);
-      border-radius: 16px;
-      padding: 1.35rem;
-      box-shadow: 0 5px 0 rgba(31, 25, 22, 0.08);
-    }
-
-    .spotlight-card.holistic {
-      border-top-color: var(--pine);
-    }
-
-    .roster-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin: 0.85rem 0;
-    }
-
-    .roster-chip {
-      background: var(--surface-alt);
-      border: 1px solid var(--brass);
-      color: var(--barn-dark);
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 0.24rem 0.6rem;
-      border-radius: 6px;
-    }
-
-    .holistic .roster-chip {
-      border-color: var(--pine);
-      color: var(--pine-dark);
-      background: #eaf3ee;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 2px solid var(--border);
-      border-top: 5px solid var(--brass);
-      border-radius: 14px;
-      padding: 1.2rem;
-      box-shadow: 0 4px 0 rgba(31, 25, 22, 0.07);
-      transition: transform 0.15s ease, border-color 0.15s ease;
-    }
-
-    .card.highlighted {
-      border-color: var(--arcade-gold);
-      border-top-color: var(--barn);
-      background: #fffaf0;
-    }
-
-    .card h3 {
-      margin: 0 0 0.35rem;
-      font-size: 1.18rem;
-      color: var(--ink);
-    }
-
-    .meta {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin-bottom: 0.65rem;
-    }
-
-    .tag {
-      display: inline-block;
-      font-size: 0.76rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      padding: 0.22rem 0.6rem;
-      border-radius: 6px;
-      background: #e5efe9;
-      color: var(--pine-dark);
-      margin-bottom: 0.6rem;
-    }
-
-    .card-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.75rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--pine);
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.86rem;
-      padding: 0.48rem 0.85rem;
-      border-radius: 8px;
-      border: 0;
-      cursor: pointer;
-      box-shadow: 0 2px 0 var(--pine-dark);
-    }
-
-    .btn:hover { background: var(--barn); box-shadow: 0 2px 0 var(--barn-dark); }
-
-    .btn-secondary {
-      background: var(--surface-alt);
-      color: var(--barn-dark);
-      border: 2px solid var(--brass);
-      box-shadow: none;
-    }
-
-    .btn-secondary:hover {
-      background: var(--arcade-gold);
-      color: var(--barn-dark);
-    }
-
-    .pitch-box {
-      background: var(--surface);
-      border-left: 6px solid var(--arcade-gold);
-      border-radius: 14px;
-      padding: 1.3rem 1.45rem;
-      border-top: 2px solid var(--border);
-      border-right: 2px solid var(--border);
-      border-bottom: 2px solid var(--border);
-      box-shadow: 0 4px 0 rgba(31, 25, 22, 0.06);
-    }
-
-    footer {
-      background: #1f1916;
-      color: #efe7d8;
-      padding: 1.6rem 1rem;
-      font-size: 0.9rem;
-      margin-top: 2rem;
-      border-top: 5px solid var(--arcade-gold);
-    }
+    :root{--bg:#14110f;--surface:#1e1916;--alt:#27211d;--red:#c93b2b;--red-dark:#8f2920;--amber:#f5b727;--pine:#2e6f4e;--cream:#f7f1e3;--muted:#b8ab99;--line:#4a3c31}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}body{margin:0;background:var(--bg);color:var(--cream);font-family:Georgia,"Times New Roman",serif;-webkit-font-smoothing:antialiased}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit}a{color:inherit}::selection{background:var(--amber);color:var(--bg)}
+    .site{min-height:100vh;overflow:hidden;background-image:radial-gradient(rgba(245,183,39,.045) .7px,transparent .7px);background-size:17px 17px}.header{position:sticky;top:0;z-index:1000;height:78px;display:flex;align-items:center;gap:24px;padding:0 clamp(18px,4vw,64px);background:rgba(20,17,15,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(245,183,39,.2)}.brand{display:flex;align-items:center;gap:10px;margin-right:auto;text-decoration:none}.brand svg{width:45px;height:45px}.brand span{display:flex;flex-direction:column}.brand strong{font:800 18px/1 "Bricolage Grotesque",sans-serif}.brand small{margin-top:5px;color:var(--muted);font:500 9px "DM Mono",monospace;text-transform:uppercase}.nav{display:flex;gap:24px}.nav a,.stop-nav a{color:var(--muted);text-decoration:none;font:600 12px "Bricolage Grotesque",sans-serif}.nav a:hover,.stop-nav a:hover{color:var(--amber)}.stop-nav{display:flex;gap:24px;margin-left:auto}.cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 18px;color:var(--bg);background:var(--amber);border:1px solid var(--amber);text-decoration:none;cursor:pointer;font:800 12px "Bricolage Grotesque",sans-serif;box-shadow:3px 3px 0 var(--red-dark);transition:transform .15s ease,box-shadow .15s ease}.cta:hover,.btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--red-dark)}.btn.ghost{color:var(--cream);background:var(--surface);border-color:var(--line);box-shadow:none}.btn.small{padding:10px 12px;font-size:10px}.menu{display:none;padding:9px;color:var(--cream);background:var(--surface);border:1px solid var(--line);cursor:pointer}.mobile-nav{display:none;position:absolute;top:77px;left:0;right:0;padding:15px 20px;background:#1e1916;border-bottom:2px solid var(--amber)}.mobile-nav.open{display:block}.mobile-nav a{display:block;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;font:700 15px "Bricolage Grotesque",sans-serif}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--amber);font:500 10px "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase}.hero{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:clamp(35px,5vw,80px);max-width:1500px;min-height:calc(100vh - 78px);margin:auto;padding:clamp(65px,8vw,110px) clamp(24px,6vw,90px);background:radial-gradient(circle at 90% 10%,rgba(201,59,43,.2),transparent 45%)}h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif}.hero h1,.stop-hero h1{margin:20px 0 24px;font-size:clamp(3rem,6vw,4.75rem);line-height:.92;letter-spacing:-.06em}.hero h1 span{display:block;overflow:hidden}.hero h1 span>b{display:block;font-weight:800;animation:rise .85s cubic-bezier(.22,1,.36,1) both}.hero h1 span:nth-child(2)>b{color:var(--amber);animation-delay:.12s}.lead{max-width:620px;color:#d5c9b8;font-size:17px;line-height:1.7}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.proof{display:flex;gap:45px;margin-top:48px;padding-top:22px;border-top:1px solid var(--line)}.proof div{display:flex;align-items:center;gap:10px}.proof strong{font:700 25px "DM Mono",monospace}.proof span{max-width:75px;color:var(--muted);font:500 9px "DM Mono",monospace;text-transform:uppercase}.cabinet{position:relative;width:min(100%,480px);justify-self:center;padding:25px 22px 22px;background:#211a16;border:2px solid var(--amber);box-shadow:12px 14px 0 #0d0b0a;animation:reveal 1s .2s both}.bulbs{display:flex;justify-content:space-between;padding:0 4px 17px}.bulbs i{width:8px;height:8px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber);animation:blink 2.4s infinite}.bulbs i:nth-child(even){animation-delay:-1.2s}.machine-img{height:clamp(360px,55vh,540px);overflow:hidden;border-radius:48% 48% 4px 4px/22% 22% 4px 4px}.machine-img img,.photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.82)}.coin{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;width:108px;height:108px;border-radius:50%;color:var(--bg);background:var(--amber);border:4px double #6f4b0d;text-align:center;transform:rotate(-8deg)}.coin strong{font:800 34px "Bricolage Grotesque",sans-serif}.coin small{font:500 8px "DM Mono",monospace;text-transform:uppercase}.coin.fifty{left:-42px;top:25%}.coin.seventy{right:-38px;bottom:15%;transform:rotate(8deg)}.plate{display:flex;justify-content:space-between;gap:12px;padding-top:18px}.plate span{color:var(--muted);font:500 8px "DM Mono",monospace;text-transform:uppercase}.plate strong{font:700 12px "Bricolage Grotesque",sans-serif}
+    .scan{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;padding:17px clamp(20px,5vw,72px);background:#2b2116;border-bottom:2px solid var(--amber)}.scan-num{display:grid;place-items:center;width:50px;height:50px;border-radius:50%;color:var(--bg);background:var(--amber);font:800 23px "Bricolage Grotesque",sans-serif}.scan small{color:var(--amber);font:500 9px "DM Mono",monospace;text-transform:uppercase}.scan strong{display:block;font:700 20px "Bricolage Grotesque",sans-serif}.scan p{margin:4px 0 0;color:var(--muted);font-size:12px}.scan a{color:var(--amber);font:700 12px "Bricolage Grotesque",sans-serif}
+    .marquee{overflow:hidden;padding:14px 0;color:var(--bg);background:var(--amber);border-bottom:5px solid var(--red-dark)}.marquee-track{display:flex;gap:28px;width:max-content;white-space:nowrap;animation:marquee 40s linear infinite}.marquee-track span{font:800 12px "Bricolage Grotesque",sans-serif}.marquee-track i{color:var(--red-dark);font-style:normal}.section{max-width:1380px;margin:auto;padding:clamp(75px,9vw,125px) clamp(20px,5vw,72px);scroll-margin-top:75px}.heading{display:grid;grid-template-columns:1.2fr .8fr;align-items:end;gap:40px;margin-bottom:45px}.heading h2,.family h2,.host h2,.stop-detail h2{margin:14px 0 0;font-size:clamp(2rem,4vw,3.4rem);line-height:.98;letter-spacing:-.05em}.heading p{margin:0;color:var(--muted);line-height:1.7}.map-box{padding:14px;background:var(--surface);border:1px solid var(--amber);box-shadow:8px 8px 0 #0d0b0a}.map-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:3px 3px 14px}.map-tools>span{color:var(--amber);font:500 9px "DM Mono",monospace;text-transform:uppercase}.chip-row{display:flex;flex:1;flex-wrap:wrap;gap:7px}.chip,.reset-map{padding:8px 11px;color:var(--muted);background:#181411;border:1px solid var(--line);border-radius:999px;cursor:pointer;font:600 10px "Bricolage Grotesque",sans-serif}.chip.active,.chip:hover{color:#fff;background:var(--pine);border-color:#6faf88}.reset-map{border-radius:0}.reset-map:hover{color:var(--amber);border-color:var(--amber)}#map{height:470px;background:#24201c;border:1px solid var(--line)}.leaflet-tile-pane{filter:grayscale(.85) invert(.92) sepia(.32) brightness(.65) contrast(1.35) hue-rotate(345deg)}.leaflet-control-zoom a{color:var(--amber)!important;background:var(--surface)!important}.leaflet-control-attribution{color:#b8ab99;background:rgba(20,17,15,.85)!important;font-size:8px}.leaflet-popup-content-wrapper{color:var(--cream);background:var(--surface);border:1px solid var(--amber);border-radius:0}.leaflet-popup-tip{background:var(--amber)}.popup{min-width:210px}.popup small{color:var(--amber)}.popup strong{display:block;margin:5px 0}.popup p{margin:5px 0;color:var(--muted);font-size:12px}.popup a{color:var(--amber);font-size:12px;font-weight:700}.pin{display:grid;place-items:center;width:42px;height:42px;border-radius:50% 50% 50% 8px;color:var(--cream);background:var(--red);border:2px solid var(--amber);box-shadow:0 0 0 5px rgba(201,59,43,.2);font:800 16px "Bricolage Grotesque",sans-serif;transform:rotate(-45deg)}.pin span{transform:rotate(45deg)}
+    .products{display:grid;grid-template-columns:1fr 1fr;gap:22px}.product{background:var(--surface);border:1px solid var(--line);scroll-margin-top:95px}.photo{position:relative;height:320px;overflow:hidden;clip-path:polygon(0 0,100% 0,100% 88%,88% 100%,0 100%)}.photo span{position:absolute;left:22px;bottom:24px;font:500 9px "DM Mono",monospace;text-transform:uppercase}.product-body{padding:32px}.price{display:inline-block;padding:8px 12px;color:var(--bg);background:var(--amber);font:500 10px "DM Mono",monospace;text-transform:uppercase;box-shadow:3px 3px 0 var(--red-dark)}.product h3{margin:22px 0 13px;font-size:28px;line-height:1.05}.product p{color:var(--muted);line-height:1.7}.roster{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}.roster span{padding:7px 9px;background:var(--alt);border:1px solid var(--line);font:500 10px "DM Mono",monospace}.clean{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0;list-style:none}.clean li{color:#cce1d4;font:600 12px "Bricolage Grotesque",sans-serif}.locations{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}.location{grid-column:span 2}.location:nth-child(-n+2){grid-column:span 3}.card{display:flex;flex-direction:column;height:100%;padding:27px;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--line)}.card.active{border-color:var(--amber);border-top-color:var(--red);background:#2b2118}.stop-top{display:flex;align-items:center;gap:12px}.stop-top b{color:var(--amber);font:500 24px "DM Mono",monospace}.stop-top span{color:var(--muted);font:500 8px "DM Mono",monospace;text-transform:uppercase}.card h3{margin:16px 0 13px;font-size:24px}.meta{display:grid;gap:7px;padding-bottom:18px;border-bottom:1px solid var(--line);color:var(--muted);font-size:12px}.machine{margin:18px 0;padding:13px;background:#181411;border-left:2px solid var(--red)}.machine small,.stock>small{display:block;color:var(--muted);font:500 8px "DM Mono",monospace;text-transform:uppercase}.machine strong{display:block;margin-top:4px;font:600 12px/1.45 "Bricolage Grotesque",sans-serif}.stock>div{display:flex;gap:10px;margin-top:10px}.stock>div>b{display:grid;place-items:center;min-width:42px;height:27px;border-radius:50%;color:var(--bg);background:var(--amber);font:800 11px "Bricolage Grotesque",sans-serif}.stock p{margin:3px 0;color:#ded2bf;font-size:12px;line-height:1.45}.tip{margin:auto 0 18px;padding-top:15px;color:var(--muted);font-size:12px;line-height:1.55}.card-actions{display:flex;flex-wrap:wrap;gap:8px}
+    .quest-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}.quest-panel{padding:30px;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--amber)}.quest-panel.passport{border-top-color:var(--pine)}.hunt{color:var(--amber);font:500 9px "DM Mono",monospace;text-transform:uppercase}.quest-panel h3{margin:8px 0 22px;font-size:25px}.progress-label{display:flex;justify-content:space-between;color:var(--muted);font:500 9px "DM Mono",monospace;text-transform:uppercase}.track{height:8px;margin:10px 0 6px;background:#100d0b;border:1px solid var(--line)}.fill{height:100%;background:var(--amber);transition:width .3s}.passport .fill{background:#4f9b70}.percent{color:var(--muted);font:500 8px "DM Mono",monospace}.animals{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:22px}.animal{min-height:105px;padding:12px 6px;color:var(--muted);background:#181411;border:1px solid var(--line);cursor:pointer}.animal strong{display:block;margin:8px 0;color:var(--cream);font:700 12px "Bricolage Grotesque",sans-serif}.animal small{font:500 7px "DM Mono",monospace;text-transform:uppercase}.animal.collected{background:#3a2b14;border-color:var(--amber);color:var(--amber)}.chases{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}.chase{padding:13px;color:var(--muted);background:#181411;border:1px solid var(--line);cursor:pointer}.chase strong{display:block;margin-top:4px;color:var(--cream);font:700 11px "Bricolage Grotesque",sans-serif}.chase small{font:500 7px "DM Mono",monospace;text-transform:uppercase}.chase.collected{background:#3a2b14;border-color:var(--amber)}.reset{margin-top:20px;padding:0;color:var(--muted);background:none;border:0;cursor:pointer;font:500 9px "DM Mono",monospace;text-transform:uppercase}.reset:hover{color:var(--amber)}.stamps{display:grid;gap:9px;margin-top:22px}.stamp{display:flex;align-items:center;gap:11px;width:100%;padding:12px;color:var(--muted);background:#181411;border:1px dashed var(--line);text-align:left;cursor:pointer}.stamp>b{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);color:var(--amber)}.stamp span{flex:1}.stamp small{display:block;font:500 8px "DM Mono",monospace;text-transform:uppercase}.stamp strong{display:block;margin-top:4px;color:var(--cream);font:700 12px "Bricolage Grotesque",sans-serif}.stamp.visited{background:#1b3025;border:1px solid #4f8d69}.master{margin-top:18px;padding:20px;color:var(--bg);background:var(--amber);border:3px double var(--red-dark);text-align:center;font:800 19px "Bricolage Grotesque",sans-serif;text-transform:uppercase;animation:pop .4s both}.master small{display:block;margin-bottom:5px;font:500 8px "DM Mono",monospace}
+    .family{display:grid;grid-template-columns:.85fr 1.15fr;background:#1b2720;border:1px solid #3f664f}.family-photo{min-height:580px;clip-path:polygon(0 0,100% 0,88% 100%,0 100%)}.family-content{padding:clamp(30px,5vw,65px)}.family-content>p{color:#b9c9be;line-height:1.7}.steps{padding:0;list-style:none}.steps li{display:flex;gap:17px;padding:17px 0;border-top:1px solid #3b5545}.steps li>b{color:#6faf88;font:500 13px "DM Mono",monospace}.steps strong{font:700 15px "Bricolage Grotesque",sans-serif}.steps p{margin:5px 0;color:#aebfb3;font-size:13px;line-height:1.55}.note{margin:18px 0;color:#b9c9be;font-size:12px;line-height:1.5}.bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.bonus{padding:28px;background:var(--surface);border:1px solid var(--line)}.bonus>span{color:var(--amber);font:500 9px "DM Mono",monospace;text-transform:uppercase}.bonus h3{margin:25px 0 12px;font-size:20px}.bonus p{color:var(--muted);font-size:14px;line-height:1.65}.host{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;padding:45px clamp(28px,5vw,65px);background:var(--red-dark);border:2px solid var(--amber)}.host p{color:#ead8c7;line-height:1.7}.benefits{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(245,183,39,.4)}.benefits div{display:flex;flex-direction:column;justify-content:center;min-height:135px;padding:20px;border:1px solid rgba(245,183,39,.18)}.benefits strong{font:800 29px "Bricolage Grotesque",sans-serif}.benefits span{color:#e1cbb8;font-size:12px}.footer{display:flex;align-items:center;justify-content:space-between;gap:30px;padding:40px clamp(24px,6vw,90px);background:#0f0d0b;border-top:4px solid var(--amber)}.footer p{margin:5px 0;color:var(--muted);font-size:12px;line-height:1.5}.footer a{color:var(--amber);font:700 11px "Bricolage Grotesque",sans-serif}
+    .stop-hero{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:60px;max-width:1500px;min-height:670px;margin:auto;padding:80px clamp(24px,6vw,90px)}.back{display:flex;width:max-content;margin-bottom:42px;color:var(--muted);text-decoration:none;font:600 11px "Bricolage Grotesque",sans-serif}.stop-meta{display:grid;gap:9px;margin-top:25px;color:#d8ccbb;font-size:13px}.number-cabinet{display:flex;flex-direction:column;align-items:center;justify-content:center;width:min(100%,430px);min-height:480px;justify-self:center;padding:28px;background:var(--surface);border:2px solid var(--amber);box-shadow:11px 12px 0 #0d0b0a}.number-cabinet svg{width:65px;height:65px}.big-number{color:var(--amber);font:800 150px/.9 "Bricolage Grotesque",sans-serif;letter-spacing:-.09em}.number-cabinet>strong{font:800 18px "Bricolage Grotesque",sans-serif;text-transform:uppercase}.number-cabinet>small{margin-top:8px;color:var(--muted);font:500 8px "DM Mono",monospace;text-transform:uppercase}.stop-detail-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:22px}.stop-detail,.visit{padding:clamp(28px,4vw,50px);background:var(--surface);border:1px solid var(--line)}.visit{background:#1b2720;border-color:#3f664f}.stop-product{display:flex;align-items:center;gap:18px;margin-top:13px;padding:20px;background:var(--alt);border:1px solid var(--line)}.stop-product>b{display:grid;place-items:center;width:66px;height:66px;flex:0 0 auto;border-radius:50%;color:var(--bg);background:var(--amber);border:4px double #6f4b0d;font:800 21px "Bricolage Grotesque",sans-serif}.stop-product small,.visit-facts small{display:block;color:var(--muted);font:500 8px "DM Mono",monospace;text-transform:uppercase}.stop-product h3{margin:5px 0 0;font-size:18px;line-height:1.25}.visit-facts p{padding:15px 0;margin:0;border-top:1px solid #3b5545;color:#c2d0c6;font-size:13px;line-height:1.55}.next{display:flex;align-items:center;justify-content:space-between;margin-top:24px;padding:18px;color:var(--bg);background:var(--amber);text-decoration:none;font:800 16px "Bricolage Grotesque",sans-serif}.next small{display:block;margin-bottom:4px;color:#5c430e;font:500 8px "DM Mono",monospace;text-transform:uppercase}.other-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.other{display:flex;flex-direction:column;height:100%;padding:23px;background:var(--surface);border:1px solid var(--line);text-decoration:none}.other:hover{border-color:var(--amber);transform:translateY(-3px)}.other>b{color:var(--amber);font:500 24px "DM Mono",monospace}.other small{min-height:30px;margin:14px 0 8px;color:var(--muted);font:500 8px "DM Mono",monospace;text-transform:uppercase}.other strong{font:800 18px "Bricolage Grotesque",sans-serif}.other p{color:var(--muted);font-size:12px;line-height:1.5}.other span{margin-top:auto;padding-top:12px;color:var(--amber);font:700 11px "Bricolage Grotesque",sans-serif}
+    @keyframes rise{from{transform:translateY(110%)}to{transform:translateY(0)}}@keyframes reveal{from{opacity:0;clip-path:inset(100% 0 0)}to{opacity:1;clip-path:inset(-20%)}}@keyframes blink{0%,100%{opacity:.45}50%{opacity:1}}@keyframes marquee{to{transform:translateX(-50%)}}@keyframes pop{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+    @media(max-width:1050px){.nav,.stop-nav{display:none}.menu{display:block}.hero{grid-template-columns:1fr 390px;padding-left:30px;padding-right:30px}.animals{grid-template-columns:repeat(3,1fr)}.other-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:820px){.hero,.stop-hero{grid-template-columns:1fr;min-height:auto}.cabinet{margin-top:25px}.heading{grid-template-columns:1fr;gap:18px}.products,.quest-grid,.family,.host,.stop-detail-grid{grid-template-columns:1fr}.location,.location:nth-child(-n+2){grid-column:span 3}.family-photo{min-height:330px;clip-path:polygon(0 0,100% 0,100% 88%,0 100%)}.stop-hero{padding-top:55px}.number-cabinet{margin-top:20px}}
+    @media(max-width:600px){.header{height:68px;padding:0 14px;gap:9px}.brand svg{width:38px;height:38px}.brand strong{font-size:15px}.brand small{font-size:7px}.header>.cta{display:none}.mobile-nav{top:67px}.hero{padding:50px 20px 75px}.hero h1,.stop-hero h1{font-size:2.85rem}.lead{font-size:15px}.actions{flex-direction:column}.proof{justify-content:space-between;gap:10px}.proof div{flex-direction:column;align-items:flex-start;gap:3px}.cabinet{width:calc(100% - 20px);padding:20px 15px}.machine-img{height:380px}.coin{width:86px;height:86px}.coin strong{font-size:27px}.coin.fifty{left:-16px}.coin.seventy{right:-16px}.plate{flex-direction:column}.scan{grid-template-columns:auto 1fr;padding:14px}.scan a{grid-column:1/-1}.section{padding:70px 18px}.heading h2,.family h2,.host h2,.stop-detail h2{font-size:2.2rem}.map-box{padding:9px}.chip-row{flex-wrap:nowrap;overflow-x:auto;width:100%;padding-bottom:5px}.chip{flex:0 0 auto}#map{height:380px}.photo{height:260px}.product-body{padding:24px}.product h3{font-size:24px}.locations{display:block}.location{margin-bottom:15px}.animals{grid-template-columns:repeat(2,1fr)}.chases{grid-template-columns:1fr}.quest-panel{padding:22px 18px}.bonus-grid{grid-template-columns:1fr}.host{padding:30px 20px}.footer{flex-direction:column;align-items:flex-start}.stop-hero{padding:45px 19px 65px}.stop-detail,.visit{padding:25px 20px}.stop-product{padding:15px;gap:13px}.stop-product>b{width:54px;height:54px;font-size:17px}.stop-product h3{font-size:15px}.other-grid{grid-template-columns:1fr}.big-number{font-size:125px}.number-cabinet{min-height:390px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee-track,.bulbs i,.hero h1 span>b,.cabinet,.master{animation:none}}
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <div class="marquee-lights" aria-hidden="true">
-        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
-        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
-        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
-      </div>
-      <div class="badge">COUNTRY ARCADE • SUSSEX &amp; WANTAGE, NJ</div>
-      <h1>Amelia's Amusements</h1>
-      <p class="lead">
-        Old-school country arcade stands across Sussex Borough and Wantage—stocked with our squishy
-        <strong>Country Farm Animal Collection</strong>, rare chase pulls, and <strong>100% dye-free holistic gumballs</strong>
-        at every stop.
-      </p>
-      <div class="pill-row">
-        <span class="pill">75¢ Country Farm Animals</span>
-        <span class="pill">50¢ 100% Dye-Free Holistic Gumballs</span>
-        <span class="pill">Glowing, Glitter &amp; Gold Chases</span>
-        <span class="pill">5 Local Route Stops</span>
-      </div>
-    </div>
-  </header>
-
-  <main class="container">
-    <div id="scanned-stop-banner" class="active-banner" aria-live="polite"></div>
-
-    <!-- Interactive Arcade Route Map -->
-    <section id="map-section">
-      <div class="section-header">
-        <div>
-          <h2>Interactive Gumball &amp; Arcade Route Map</h2>
-          <p class="section-sub">
-            Tap any pin on the map or choose a stop below to see what's stocked and get directions.
-          </p>
-        </div>
-        <button class="btn btn-secondary" type="button" onclick="resetMapView()">Show All 5 Stops</button>
-      </div>
-
-      <div class="map-cabinet">
-        <div id="map-chips" class="map-toolbar">
-          <span class="map-toolbar-label">Jump to Stop:</span>
-        </div>
-        <div id="arcade-map" role="region" aria-label="Interactive map of Amelia's Amusements locations in Sussex and Wantage, NJ"></div>
-      </div>
-    </section>
-
-    <!-- Flagship Spotlight: Farm Collection + Holistic Gumballs -->
-    <section id="flagship">
-      <div class="section-header">
-        <div>
-          <h2>What's Inside Every Country Arcade Stand</h2>
-          <p class="section-sub">
-            Dual-head vintage stands pairing collectable barnyard capsules with clean, dye-free gumballs.
-          </p>
-        </div>
-      </div>
-
-      <div class="spotlight-grid">
-        <article class="spotlight-card">
-          <span class="tag">Flagship Capsule Head • 75¢ Spin</span>
-          <h3>Country Farm Animal Collection</h3>
-          <p>
-            Collect all 10 squishy barnyard pencil toppers and desk buddies—plus hunt for
-            <strong>Rare, Ultra Rare, Crazy Rare, Glowing, Glitter, and Gold Trophy</strong> chase variants!
-            Each 1.1" capsule also includes an online game code.
-          </p>
-          <div class="roster-chips">
-            <span class="roster-chip">Pig</span>
-            <span class="roster-chip">Rooster</span>
-            <span class="roster-chip">Sheep</span>
-            <span class="roster-chip">Bull</span>
-            <span class="roster-chip">Cow</span>
-            <span class="roster-chip">Horse</span>
-            <span class="roster-chip">Goat</span>
-            <span class="roster-chip">Ostrich</span>
-            <span class="roster-chip">Llama</span>
-            <span class="roster-chip">Bee</span>
-          </div>
-        </article>
-
-        <article class="spotlight-card holistic">
-          <span class="tag">Gumball Globe • 50¢ Spin</span>
-          <h3>100% Dye-Free Holistic Gumballs</h3>
-          <p>
-            Classic arcade gumball fun made <strong>without artificial food dyes</strong> (no Red 40, Yellow 5, or Blue 1).
-            Naturally colored with fruit and vegetable extracts so parents and families can spin worry-free at every stop.
-          </p>
-          <div class="roster-chips">
-            <span class="roster-chip">Zero Synthetic Dyes</span>
-            <span class="roster-chip">Plant &amp; Fruit Colored</span>
-            <span class="roster-chip">Classic Crunch &amp; Flavor</span>
-            <span class="roster-chip">Stocked at All 5 Stops</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- 5 Participating Businesses -->
-    <section id="route">
-      <div class="section-header">
-        <div>
-          <h2>Participating Sussex &amp; Wantage Locations</h2>
-          <p class="section-sub">
-            Visit any of our five starter stands to spin for holistic gumballs and complete your farm animal set.
-          </p>
-        </div>
-      </div>
-      <div id="locations-grid" class="grid-2"></div>
-    </section>
-
-    <!-- Bonus Niche Drops -->
-    <section id="bonus-sets">
-      <div class="section-header">
-        <div>
-          <h2>Bonus Niche Drops Mixed Into Select Stops</h2>
-          <p class="section-sub">
-            Alongside our flagship Farm Animals, select machines feature small-batch local themes.
-          </p>
-        </div>
-      </div>
-      <div class="grid-3">
-        <div class="card">
-          <span class="tag">Country Gear</span>
-          <h3>Utility &amp; Bottle Openers</h3>
-          <p>Keychain bottle openers, mini carabiners, and country/trail stickers for parents, commuters, and regulars.</p>
-        </div>
-        <div class="card">
-          <span class="tag">Fandom Niche</span>
-          <h3>K-Pop Collector Drops</h3>
-          <p>Compact member photo strips and vinyl stickers for fans hunting a dedicated mini set.</p>
-        </div>
-        <div class="card">
-          <span class="tag">Local Makers</span>
-          <h3>Handmade Craft Keepsakes</h3>
-          <p>Mini woven bookmarks, beaded charms, stamped wood tokens, and small-batch craft tags.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Host Pitch -->
-    <section id="hosts">
-      <h2>Host a Stand in Sussex or Wantage</h2>
-      <div class="pitch-box">
-        <p style="margin-top:0;">
-          <strong>Zero cost, zero electricity, and full route service:</strong> Amelia's Amusements restores,
-          stocks, cleans, and services each machine while paying your business a <strong>20% commission</strong>
-          on coin collections.
-        </p>
-        <p style="margin-bottom:0;">
-          Your business is featured right on our interactive route map so local families spinning at one stop
-          discover your shop next.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      Amelia's Amusements • Sussex Borough &amp; Wantage, NJ • Country Arcade &amp; Holistic Gumball Route
-    </div>
-  </footer>
-
-  <!-- Leaflet Interactive Map JS -->
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""
-  ></script>
-
+  <noscript><h1>Amelia’s Amusements</h1><p>Old-school spins. New-family traditions. Chase squishy farm animals, rare pulls, and dye-free gumballs at five restored country arcade stands in Sussex Borough and Wantage, New Jersey.</p></noscript>
+  <div id="app"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script>
-    // 5 Participating Sussex & Wantage Locations with Coordinates for Interactive Map
-    const STOPS = [
-      {
-        id: "early-american-tavern",
-        number: 1,
-        name: "Early American Tavern",
-        address: "9 Main St, Sussex, NJ 07461",
-        hours: "Mon–Fri 7:00 AM–11:00 PM; Sat 11:00 AM–11:00 PM",
-        questRole: "Stop #1 • South-End Country & Dining",
-        mix: "100% Dye-Free Holistic Gumballs, Country Farm Animal Collection, and keychain bottle openers.",
-        lat: 41.2096,
-        lng: -74.6079,
-        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Early+American+Tavern+9+Main+St+Sussex+NJ+07461"
-      },
-      {
-        id: "the-sussex-saloon",
-        number: 2,
-        name: "The Sussex Saloon",
-        address: "15-17 Main St, Sussex, NJ 07461",
-        hours: "Wed–Thu 4:00 PM–11:00 PM; Fri–Sat 4:00 PM–12:00 AM; Sun 4:00 PM–10:00 PM",
-        questRole: "Stop #2 • Billiard & Grill Hangout",
-        mix: "100% Dye-Free Holistic Gumballs, Country Utility & Openers, and K-Pop niche drops.",
-        lat: 41.2099,
-        lng: -74.6077,
-        mapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Sussex+Saloon+15-17+Main+St+Sussex+NJ+07461"
-      },
-      {
-        id: "main-street-barbers",
-        number: 3,
-        name: "Main Street Barbers",
-        address: "49/51 Main St, Sussex, NJ 07461",
-        hours: "Tue–Sun hours vary (Closed Mon)",
-        questRole: "Stop #3 • Mid-Block Barbershop",
-        mix: "100% Dye-Free Holistic Gumballs, Country Farm Animal Collection, and handmade craft keepsakes.",
-        lat: 41.2108,
-        lng: -74.6072,
-        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Main+Street+Barbers+49+Main+St+Sussex+NJ+07461"
-      },
-      {
-        id: "lorenzos-pizzeria",
-        number: 4,
-        name: "Lorenzo's Pizzeria & Restaurant",
-        address: "67 Main St, Sussex, NJ 07461",
-        hours: "Daily 11:00 AM–9:00 PM",
-        questRole: "Stop #4 • Family Pizza & Takeout Lobby",
-        mix: "100% Dye-Free Holistic Gumballs, Country Farm Animal Collection, and K-Pop niche drops.",
-        lat: 41.2113,
-        lng: -74.6069,
-        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Lorenzo%27s+Pizzeria+%26+Restaurant+67+Main+St+Sussex+NJ+07461"
-      },
-      {
-        id: "lukoil-wantage",
-        number: 5,
-        name: "Lukoil",
-        address: "721 NJ-23, Wantage, NJ 07461",
-        hours: "Mon–Sun 5:00 AM–12:00 AM",
-        questRole: "Stop #5 • Route 23 Wantage Fuel & Snack Stop",
-        mix: "100% Dye-Free Holistic Gumballs, Country Farm Animal Collection, and Country Utility keychains.",
-        lat: 41.2248,
-        lng: -74.6145,
-        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Lukoil+721+NJ-23+Wantage+NJ+07461"
-      }
+    const SITE_URL="https://mattmedia91.github.io/Amelias-Amusements-/";
+    const STOPS=[
+      {id:"early-american-tavern",number:1,name:"Early American Tavern",address:"9 Main St, Sussex, NJ 07461",street:"9 Main St",locality:"Sussex",hours:"Mon–Fri 7:00 AM–11:00 PM; Sat 11:00 AM–11:00 PM",role:"South-End Country & Dining",machine:"Restored Dual-Head Country Arcade Stand (Non-Electric)",products:[["50¢","100% Dye-Free Holistic Gumballs"],["75¢","Country Farm Animal Collection & Keychain Bottle Openers"]],lat:41.2096,lng:-74.6079,maps:"https://www.google.com/maps/search/?api=1&query=Early+American+Tavern+9+Main+St+Sussex+NJ+07461",tip:"Begin at the south end of Main Street, then carry your collection uphill to The Sussex Saloon."},
+      {id:"the-sussex-saloon",number:2,name:"The Sussex Saloon",address:"15-17 Main St, Sussex, NJ 07461",street:"15-17 Main St",locality:"Sussex",hours:"Wed–Thu 4:00 PM–11:00 PM; Fri–Sat 4:00 PM–12:00 AM; Sun 4:00 PM–10:00 PM",role:"Billiard & Grill Hangout",machine:"Restored Dual-Head Country Arcade Stand (Non-Electric)",products:[["50¢","100% Dye-Free Holistic Gumballs"],["75¢","Keychain Bottle Openers & K-Pop Collector Drops"]],lat:41.2099,lng:-74.6077,maps:"https://www.google.com/maps/search/?api=1&query=The+Sussex+Saloon+15-17+Main+St+Sussex+NJ+07461",tip:"Hunt for a different capsule mix here, then support Main Street Barbers at stop three."},
+      {id:"main-street-barbers",number:3,name:"Main Street Barbers",address:"49/51 Main St, Sussex, NJ 07461",street:"49/51 Main St",locality:"Sussex",hours:"Tue–Sun hours vary (Closed Mon)",role:"Mid-Block Barbershop",machine:"Restored Dual-Head Country Arcade Stand (Non-Electric)",products:[["50¢","100% Dye-Free Holistic Gumballs"],["75¢","Country Farm Animal Collection & Handmade Craft Keepsakes"]],lat:41.2108,lng:-74.6072,maps:"https://www.google.com/maps/search/?api=1&query=Main+Street+Barbers+49+Main+St+Sussex+NJ+07461",tip:"Add a farm friend or handmade keepsake, then make Lorenzo’s your family pizza stop."},
+      {id:"lorenzos-pizzeria",number:4,name:"Lorenzo's Pizzeria & Restaurant",address:"67 Main St, Sussex, NJ 07461",street:"67 Main St",locality:"Sussex",hours:"Daily 11:00 AM–9:00 PM",role:"Family Pizza & Takeout Lobby",machine:"Restored Dual-Head Country Arcade Stand (Non-Electric)",products:[["50¢","100% Dye-Free Holistic Gumballs"],["75¢","Country Farm Animal Collection & K-Pop Collector Drops"]],lat:41.2113,lng:-74.6069,maps:"https://www.google.com/maps/search/?api=1&query=Lorenzo%27s+Pizzeria+%26+Restaurant+67+Main+St+Sussex+NJ+07461",tip:"Pair a spin with a family meal, then finish the passport at Lukoil on Route 23."},
+      {id:"lukoil-wantage",number:5,name:"Lukoil",address:"721 NJ-23, Wantage, NJ 07461",street:"721 NJ-23",locality:"Wantage",hours:"Mon–Sun 5:00 AM–12:00 AM",role:"Route 23 Wantage Fuel & Snack Stop",machine:"Restored Dual-Head Country Arcade Stand (Non-Electric)",products:[["50¢","100% Dye-Free Holistic Gumballs"],["75¢","Country Farm Animal Collection & Country Utility Keychains"]],lat:41.2248,lng:-74.6145,maps:"https://www.google.com/maps/search/?api=1&query=Lukoil+721+NJ-23+Wantage+NJ+07461",tip:"Complete the route here, then revisit your favorite Main Street stops to finish the farm set."}
     ];
-
-    let arcadeMap = null;
-    let routeBounds = null;
-    const markersById = {};
-
-    function focusStop(stopId, scrollToMap) {
-      const stop = STOPS.find((s) => s.id === stopId);
-      if (!stop) return;
-
-      // Highlight active chip
-      document.querySelectorAll(".map-chip").forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.stopId === stopId);
-      });
-
-      // Highlight matching location card
-      document.querySelectorAll(".location-card").forEach((card) => {
-        card.classList.toggle("highlighted", card.dataset.stopId === stopId);
-      });
-
-      if (arcadeMap && markersById[stopId]) {
-        arcadeMap.setView([stop.lat, stop.lng], 16, { animate: true });
-        markersById[stopId].openPopup();
-      }
-
-      if (scrollToMap) {
-        const mapEl = document.getElementById("map-section");
-        if (mapEl) mapEl.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
-
-    function resetMapView() {
-      document.querySelectorAll(".map-chip").forEach((btn) => btn.classList.remove("active"));
-      document.querySelectorAll(".location-card").forEach((card) => card.classList.remove("highlighted"));
-      if (arcadeMap && routeBounds) {
-        arcadeMap.closePopup();
-        arcadeMap.fitBounds(routeBounds, { padding: [36, 36] });
-      }
-    }
-
-    function renderStopCards() {
-      const grid = document.getElementById("locations-grid");
-      const chipsContainer = document.getElementById("map-chips");
-      if (!grid) return;
-
-      const params = new URLSearchParams(window.location.search);
-      const scannedId = params.get("stop");
-      const matchedStop = STOPS.find((s) => s.id === scannedId);
-
-      if (matchedStop) {
-        const banner = document.getElementById("scanned-stop-banner");
-        if (banner) {
-          banner.innerHTML =
-            "<strong>Welcome from " +
-            matchedStop.name +
-            "!</strong> " +
-            matchedStop.mix +
-            ' <a href="' +
-            matchedStop.mapsUrl +
-            '" target="_blank" rel="noopener">Open in Google Maps</a>';
-          banner.classList.add("visible");
-        }
-      }
-
-      STOPS.forEach((stop) => {
-        // Quick jump chip above map
-        if (chipsContainer) {
-          const chip = document.createElement("button");
-          chip.type = "button";
-          chip.className = "map-chip";
-          chip.dataset.stopId = stop.id;
-          chip.textContent = "#" + stop.number + " " + stop.name;
-          chip.onclick = () => focusStop(stop.id, false);
-          chipsContainer.appendChild(chip);
-        }
-
-        // Location card
-        const article = document.createElement("article");
-        article.className = "card location-card";
-        article.dataset.stopId = stop.id;
-        article.innerHTML =
-          '<span class="tag">' +
-          stop.questRole +
-          "</span>" +
-          "<h3>" +
-          stop.name +
-          "</h3>" +
-          '<div class="meta"><strong>Address:</strong> ' +
-          stop.address +
-          "<br><strong>Hours:</strong> " +
-          stop.hours +
-          "</div>" +
-          "<p>" +
-          stop.mix +
-          "</p>" +
-          '<div class="card-actions">' +
-          '<button type="button" class="btn" onclick="focusStop(\'' +
-          stop.id +
-          '\', true)">Show on Map</button>' +
-          '<a class="btn btn-secondary" href="' +
-          stop.mapsUrl +
-          '" target="_blank" rel="noopener">Google Maps</a>' +
-          "</div>";
-        grid.appendChild(article);
-      });
-    }
-
-    function initInteractiveMap() {
-      const mapContainer = document.getElementById("arcade-map");
-      if (!mapContainer) return;
-
-      if (typeof L === "undefined") {
-        mapContainer.innerHTML =
-          '<div style="padding:1.5rem; text-align:center; color:#5a4f45;">' +
-          "Interactive map tiles could not load offline. Use the Google Maps buttons on each stop card below!</div>";
-        return;
-      }
-
-      try {
-        arcadeMap = L.map("arcade-map", { scrollWheelZoom: false });
-
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          maxZoom: 19,
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(arcadeMap);
-
-        const latLngs = [];
-
-        STOPS.forEach((stop) => {
-          const pinIcon = L.divIcon({
-            className: "arcade-pin",
-            html:
-              '<div style="background:#8f2920; color:#fffaf0; border:2px solid #ffbe2e; ' +
-              "width:28px; height:28px; border-radius:50%; display:flex; align-items:center; " +
-              'justify-content:center; font-weight:900; font-size:13px; box-shadow:0 2px 6px rgba(0,0,0,0.4);">' +
-              stop.number +
-              "</div>",
-            iconSize: [28, 28],
-            iconAnchor: [14, 14],
-            popupAnchor: [0, -14]
-          });
-
-          const popupHtml =
-            '<div style="font-family:system-ui,sans-serif; max-width:220px;">' +
-            '<strong style="color:#5c1610; font-size:14px;">#' +
-            stop.number +
-            " " +
-            stop.name +
-            "</strong><br>" +
-            '<span style="font-size:12px; color:#5a4f45;">' +
-            stop.address +
-            "</span><br>" +
-            '<p style="font-size:12px; margin:6px 0;">' +
-            stop.mix +
-            "</p>" +
-            '<a href="' +
-            stop.mapsUrl +
-            '" target="_blank" rel="noopener" style="font-size:12px; font-weight:700; color:#25523b;">' +
-            "Open in Google Maps &rarr;</a></div>";
-
-          const marker = L.marker([stop.lat, stop.lng], { icon: pinIcon })
-            .addTo(arcadeMap)
-            .bindPopup(popupHtml);
-
-          markersById[stop.id] = marker;
-          latLngs.push([stop.lat, stop.lng]);
-        });
-
-        // Connect the route line from Main St Sussex up to Lukoil on Route 23
-        L.polyline(latLngs, {
-          color: "#8f2920",
-          weight: 3,
-          opacity: 0.7,
-          dashArray: "6, 8"
-        }).addTo(arcadeMap);
-
-        routeBounds = L.latLngBounds(latLngs);
-        arcadeMap.fitBounds(routeBounds, { padding: [36, 36] });
-
-        // If visitor arrived from a ?stop= link, focus that pin automatically
-        const params = new URLSearchParams(window.location.search);
-        const scannedId = params.get("stop");
-        if (scannedId && markersById[scannedId]) {
-          focusStop(scannedId, false);
-        }
-      } catch (err) {
-        mapContainer.innerHTML =
-          '<div style="padding:1.5rem; text-align:center; color:#5a4f45;">' +
-          "Unable to initialize map right now. Use the Google Maps links below for directions.</div>";
-      }
-    }
-
-    renderStopCards();
-    initInteractiveMap();
+    const ANIMALS=["Pig","Rooster","Sheep","Bull","Cow","Horse","Goat","Ostrich","Llama","Bee"];
+    const CHASES=[["glowing","Glowing","Rare pull"],["glitter","Glitter","Ultra rare"],["gold-trophy","Gold Trophy","Crazy rare"]];
+    const IMAGES={hero:"https://images.unsplash.com/photo-1784091478442-19ba0c6fa245?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTZ8MHwxfHNlYXJjaHwxfHx2aW50YWdlJTIwZ3VtYmFsbCUyMG1hY2hpbmUlMjBhcmNhZGV8ZW58MHx8fHwxNzk1NTcyMDA4fDA&ixlib=rb-4.1.0&q=85",farm:"https://images.pexels.com/photos/33460471/pexels-photo-33460471.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",gum:"https://images.pexels.com/photos/3800799/pexels-photo-3800799.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",arcade:"https://images.pexels.com/photos/17377046/pexels-photo-17377046.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"};
+    const app=document.getElementById("app");let map=null,bounds=null,markers={},activeId=null;
+    const logo=()=>`<svg viewBox="0 0 64 64" aria-label="Amelia's Amusements logo"><path d="M9 27 32 8l23 19" fill="none" stroke="#c93b2b" stroke-width="6"/><path d="M15 25h34v29H15z" fill="#1e1916" stroke="#f5b727" stroke-width="2.5"/><circle cx="32" cy="34" r="12" fill="#14110f" stroke="#f5b727" stroke-width="2.5"/><circle cx="27" cy="31" r="3.2" fill="#c93b2b"/><circle cx="35" cy="29" r="3" fill="#f7f1e3"/><circle cx="37" cy="37" r="3.4" fill="#2e6f4e"/><circle cx="28" cy="39" r="2.8" fill="#f5b727"/><path d="M25 48h14v6H25z" fill="#c93b2b" stroke="#f5b727" stroke-width="2"/></svg>`;
+    const bulbs=(n=12)=>`<div class="bulbs" aria-hidden="true">${Array.from({length:n},()=>"<i></i>").join("")}</div>`;
+    const header=()=>`<header class="header"><a class="brand" href="${location.pathname}" data-link data-testid="brand-home">${logo()}<span><strong>Amelia’s</strong><small>Amusements · Sussex, NJ</small></span></a><nav class="nav"><a href="#map-section">Route Map</a><a href="#farm-animals">Farm Animals</a><a href="#holistic-gumballs">Holistic Gumballs</a><a href="#treasure-quest">Treasure Quest</a><a href="#hosts">Host a Stand</a></nav><a class="cta" href="#map-section">Find a stand</a><button class="menu" type="button" data-menu aria-label="Toggle navigation" data-testid="mobile-menu">Menu</button><nav class="mobile-nav" id="mobile-nav"><a href="#map-section">Route Map</a><a href="#farm-animals">Farm Animals</a><a href="#holistic-gumballs">Holistic Gumballs</a><a href="#treasure-quest">Treasure Quest</a><a href="#hosts">Host a Stand</a></nav></header>`;
+    const stopHeader=()=>`<header class="header"><a class="brand" href="${location.pathname}" data-link data-testid="stop-brand-home">${logo()}<span><strong>Amelia’s</strong><small>Amusements · Sussex, NJ</small></span></a><nav class="stop-nav"><a href="${location.pathname}#map-section">Route Map</a><a href="${location.pathname}#treasure-quest">Treasure Quest</a><a href="${location.pathname}#hosts">Host a Stand</a></nav></header>`;
+    const footer=()=>`<footer class="footer"><div class="brand">${logo()}<span><strong>Amelia’s Amusements</strong><small>Country arcade · Sussex & Wantage, NJ</small></span></div><p>Five stops. Ten farm friends.<br>One very good reason to explore together.</p><a href="${location.pathname}#route">Explore all five stops →</a></footer>`;
+    const mapSection=(stop=false)=>`<section id="map-section" class="section"><div class="heading"><div><span class="eyebrow">${stop?"Your place on the trail":"The Sussex County treasure route"}</span><h2>${stop?"See this stop<br>on the route.":"Five stops.<br>One glowing trail."}</h2></div><p>Tap a numbered pin or jump straight to a storefront. Every stop has its own capsule mix, so the next spin is always worth the trip.</p></div><div class="map-box" data-testid="route-map"><div class="map-tools"><span>Jump to stop</span><div class="chip-row">${STOPS.map(s=>`<button class="chip" data-focus="${s.id}" data-testid="map-jump-${s.id}">#${s.number} ${s.name}</button>`).join("")}</div><button class="reset-map" data-reset-map data-testid="show-all-stops">Show all 5</button></div><div id="map" role="region" aria-label="Interactive map of Amelia's Amusements locations"></div></div></section>`;
+    const getItems=key=>{try{const value=JSON.parse(localStorage.getItem(key)||"[]");return Array.isArray(value)?value:[]}catch{return[]}};
+    const quest=()=>{const farm=getItems("amelias_farm_animals_v1"),pass=getItems("amelias_route_passport_v1"),fp=Math.round(farm.length/13*100),pp=Math.round(pass.length/5*100);return`<section id="treasure-quest" class="section"><div class="heading"><div><span class="eyebrow">Your pocket-sized treasure hunt</span><h2>Collect them all.<br>Remember every spin.</h2></div><p>Tap each prize you pull and every stop you visit. Progress saves automatically in this browser—no account needed.</p></div><div class="quest-grid"><div class="quest-panel"><span class="hunt">Hunt #1</span><h3>Country Farm Animal Collection</h3><div class="progress-label"><span>Farm collection</span><b>${farm.length} / 13</b></div><div class="track" data-testid="farm-progress"><div class="fill" style="width:${fp}%"></div></div><span class="percent">${fp}% collected</span><div class="animals">${ANIMALS.map((a,i)=>{const id=a.toLowerCase(),on=farm.includes(id);return`<button class="animal ${on?"collected":""}" data-collect="${id}" aria-pressed="${on}" data-testid="collect-${id}"><strong>${String(i+1).padStart(2,"0")} · ${a}</strong><small>${on?"✓ Collected":"Tap to collect"}</small></button>`}).join("")}</div><div class="chases">${CHASES.map(c=>{const on=farm.includes(c[0]);return`<button class="chase ${on?"collected":""}" data-collect="${c[0]}" aria-pressed="${on}" data-testid="chase-${c[0]}"><small>${c[2]}</small><strong>${c[1]} ${on?"✓":""}</strong></button>`}).join("")}</div><button class="reset" data-reset="amelias_farm_animals_v1" data-testid="reset-farm">↻ Reset farm collection</button></div><div class="quest-panel passport"><span class="hunt">Hunt #2</span><h3>Sussex & Wantage Route Passport</h3><div class="progress-label"><span>Route passport</span><b>${pass.length} / 5</b></div><div class="track" data-testid="passport-progress"><div class="fill" style="width:${pp}%"></div></div><span class="percent">${pp}% collected</span><div class="stamps">${STOPS.map(s=>{const on=pass.includes(s.id);return`<button class="stamp ${on?"visited":""}" data-passport="${s.id}" aria-pressed="${on}" data-testid="passport-${s.id}"><b>${on?"✓":s.number}</b><span><small>${s.locality} · Stop #${s.number}</small><strong>${s.name}</strong></span></button>`}).join("")}</div>${pass.length===5?`<div class="master" data-testid="arcade-master"><small>Passport complete</small>★ Sussex & Wantage<br>Arcade Master ★</div>`:""}<button class="reset" data-reset="amelias_route_passport_v1" data-testid="reset-passport">↻ Reset route passport</button></div></div></section>`};
+    const home=()=>{const scanned=STOPS.find(s=>s.id===new URLSearchParams(location.search).get("stop"));return`<div class="site">${header()}${scanned?`<aside class="scan" data-testid="scanned-banner"><span class="scan-num">${scanned.number}</span><div><small>Machine found · Stop #${scanned.number}</small><strong>Welcome from ${scanned.name}!</strong><p>${scanned.products.map(p=>p.join(" ")).join(" + ")}</p></div><a href="#stop-${STOPS[scanned.number%5].id}">Next: ${STOPS[scanned.number%5].name} →</a></aside>`:""}<main><section class="hero" data-testid="hero"><div><span class="eyebrow">● Country arcade · Sussex & Wantage, NJ</span><h1><span><b>Amelia’s</b></span><span><b>Amusements</b></span></h1><p class="lead">Old-school spins. New-family traditions. Chase squishy farm animals, rare pulls, and dye-free gumballs at five restored country arcade stands.</p><div class="actions"><a class="btn" href="#map-section">Start the family route →</a><a class="btn ghost" href="#treasure-quest">Build your collection</a></div><div class="proof"><div><strong>05</strong><span>Local route stops</span></div><div><strong>10</strong><span>Farm friends</span></div><div><strong>0</strong><span>Artificial dyes</span></div></div></div><div class="cabinet">${bulbs()}<div class="machine-img"><img src="${IMAGES.hero}" alt="Classic red vintage gumball and capsule toy vending machine"></div><span class="coin fifty"><small>Gumball globe</small><strong>50¢</strong><small>Twist & enjoy</small></span><span class="coin seventy"><small>Capsule head</small><strong>75¢</strong><small>Collect & trade</small></span><div class="plate"><span>Restored mechanical fun</span><strong>No plugs. Just possibility.</strong></div></div></section><div class="marquee"><div class="marquee-track"><span>100% DYE-FREE GUMBALLS</span><i>★</i><span>COUNTRY FARM ANIMALS</span><i>★</i><span>5 LOCAL STOPS</span><i>★</i><span>RESTORED MECHANICAL STANDS</span><i>★</i><span>ZERO ELECTRICITY</span><i>★</i><span>SUSSEX & WANTAGE, NJ</span><i>★</i><span>100% DYE-FREE GUMBALLS</span><i>★</i><span>COUNTRY FARM ANIMALS</span><i>★</i><span>5 LOCAL STOPS</span><i>★</i></div></div>${mapSection()}<section class="section"><div class="heading"><div><span class="eyebrow">Inside the dual-head stand</span><h2>Pick your kind<br>of happy.</h2></div><p>Two mechanical heads, two pocket-change adventures. Every route stop stocks dye-free gumballs alongside a rotating capsule lineup.</p></div><div class="products"><article class="product" id="farm-animals"><div class="photo"><img src="${IMAGES.farm}" alt="Miniature collectible animal figures" loading="lazy"><span>The flagship collection</span></div><div class="product-body"><span class="price">75¢ · Capsule spin</span><h3>Country Farm Animal Collection</h3><p>Ten squishy barnyard pencil toppers and desk buddies, plus Rare, Ultra Rare, Crazy Rare, Glowing, Glitter, and Gold Trophy chase variants. Each 1.1” capsule includes an online game code.</p><div class="roster">${ANIMALS.map(a=>`<span>${a}</span>`).join("")}</div></div></article><article class="product" id="holistic-gumballs"><div class="photo"><img src="${IMAGES.gum}" alt="Retro gumball dispenser filled with colorful gumballs" loading="lazy"><span>Stocked at all five stops</span></div><div class="product-body"><span class="price">50¢ · Gumball spin</span><h3>100% Dye-Free Holistic Gumballs</h3><p>Classic gumball fun without artificial food dyes. Naturally colored with fruit and vegetable extracts, so families can enjoy the ritual with a little more peace of mind.</p><ul class="clean"><li>✓ No Red 40</li><li>✓ No Yellow 5</li><li>✓ No Blue 1</li><li>✓ Fruit & vegetable colored</li></ul></div></article></div></section><section id="route" class="section"><div class="heading"><div><span class="eyebrow">Meet your route partners</span><h2>A different find<br>behind every door.</h2></div><p>Spin here, support there. Each participating business helps make the route possible—explore their exact machine setup and plan your next local stop.</p></div><div class="locations">${STOPS.map(s=>`<div class="location" id="stop-${s.id}"><article class="card ${activeId===s.id?"active":""}" data-testid="location-${s.id}"><div class="stop-top"><b>${String(s.number).padStart(2,"0")}</b><span>${s.role}</span></div><h3>${s.name}</h3><div class="meta"><span>Address: ${s.address}</span><span>Hours: ${s.hours}</span></div><div class="machine"><small>The machine</small><strong>${s.machine}</strong></div><div class="stock"><small>On this stand</small>${s.products.map(p=>`<div><b>${p[0]}</b><p>${p[1]}</p></div>`).join("")}</div><p class="tip">♡ ${s.tip}</p><div class="card-actions"><button class="btn small" data-focus="${s.id}" data-scroll-map data-testid="show-map-${s.id}">Show on map</button><a class="btn small ghost" href="${s.maps}" target="_blank" rel="noopener">Directions ↗</a><a class="btn small ghost" href="?guide=${s.id}" data-link data-testid="guide-${s.id}">Stop guide →</a></div></article></div>`).join("")}</div></section>${quest()}<section class="section"><div class="family"><div class="family-photo photo"><img src="${IMAGES.arcade}" alt="Warm glowing retro arcade marquee lights" loading="lazy"></div><div class="family-content"><span class="eyebrow">The family route challenge</span><h2>Turn “just one spin” into a Sussex County tradition.</h2><p>Bring some quarters, invite the kids, and make every route partner part of the adventure. A meal, a trim, a snack, or a simple thank-you helps keep local stops glowing.</p><ol class="steps"><li><b>01</b><div><strong>Start where you are</strong><p>Use the map to find your nearest stand and check the business hours before heading out.</p></div></li><li><b>02</b><div><strong>Chase a different mix</strong><p>Compare capsule lineups at each storefront instead of stopping after your first duplicate.</p></div></li><li><b>03</b><div><strong>Complete the passport</strong><p>Stamp all five stops, unlock Arcade Master, then revisit your favorites to finish the farm set.</p></div></li></ol><p class="note">Make it a grown-up-led outing: use sidewalks, cross carefully, and check hours before you travel.</p><a class="btn" href="#map-section">Plan our route →</a></div></div></section><section class="section"><div class="heading"><div><span class="eyebrow">Small-batch surprises</span><h2>Beyond the<br>barnyard.</h2></div><p>Select stands mix in niche drops for collectors, commuters, and fans. Check each business card for the exact lineup before you go.</p></div><div class="bonus-grid"><div class="bonus"><span>Country gear</span><h3>Utility & Bottle Openers</h3><p>Keychain bottle openers, mini carabiners, and country or trail stickers for parents, commuters, and regulars.</p></div><div class="bonus"><span>Fandom niche</span><h3>K-Pop Collector Drops</h3><p>Compact member photo strips and vinyl stickers for fans hunting a dedicated mini set.</p></div><div class="bonus"><span>Local makers</span><h3>Handmade Craft Keepsakes</h3><p>Mini woven bookmarks, beaded charms, stamped wood tokens, and small-batch craft tags.</p></div></div></section><section id="hosts" class="section"><div class="host"><div><span class="eyebrow">For Sussex & Wantage business owners</span><h2>Your storefront.<br>Our next little landmark.</h2><p>Amelia’s Amusements restores, stocks, cleans, and services each machine. You give families one more reason to step inside—and join a route that introduces them to neighboring businesses.</p></div><div class="benefits"><div><strong>20%</strong><span>Commission on coin collections</span></div><div><strong>$0</strong><span>Cost to host the stand</span></div><div><strong>0</strong><span>Electricity required</span></div><div><strong>Full</strong><span>Route service & restocking</span></div></div></div></section></main>${footer()}</div>`};
+    const stopPage=s=>{const next=STOPS[s.number%5],others=STOPS.filter(x=>x.id!==s.id);return`<div class="site">${stopHeader()}<main><section class="stop-hero" data-testid="stop-page-${s.id}"><div><a class="back" href="${location.pathname}#route">← Route directory</a><span class="eyebrow">Stop #${s.number} · ${s.locality}, New Jersey</span><h1>${s.name}</h1><p class="lead">${s.role}. A pocket-change pause on the Sussex & Wantage country arcade trail, with its own reasons to spin and explore.</p><div class="stop-meta"><span>Address: ${s.address}</span><span>Hours: ${s.hours}</span></div><div class="actions"><a class="btn" href="${s.maps}" target="_blank" rel="noopener" data-testid="stop-directions">Get directions ↗</a><a class="btn ghost" href="#stop-lineup">See what’s inside</a></div></div><div class="number-cabinet">${bulbs(10)}${logo()}<span class="big-number">${String(s.number).padStart(2,"0")}</span><strong>Country Arcade Stop</strong><small>Restored · Mechanical · Non-Electric</small></div></section><section id="stop-lineup" class="section"><div class="stop-detail-grid"><div class="stop-detail"><span class="eyebrow">What machine & what product</span><h2>Your spin,<br>spelled out.</h2><div class="machine"><small>The machine at this stop</small><strong>${s.machine}</strong></div>${s.products.map((p,i)=>`<article class="stop-product" data-testid="stop-product-${i}"><b>${p[0]}</b><div><small>${i===0?"Gumball globe":"Capsule head"}</small><h3>${p[1]}</h3></div></article>`).join("")}</div><aside class="visit"><span class="eyebrow">Plan your family visit</span><h2>Make this stop part of the story.</h2><div class="visit-facts"><p><small>Find the stand</small>${s.address}</p><p><small>Business hours</small>${s.hours}</p><p><small>Support this route partner</small>Check hours before traveling and consider making a purchase while you visit.</p></div><p class="tip">♡ ${s.tip}</p><p class="note">Keep the route grown-up-led: use sidewalks, cross carefully, and check hours before you travel.</p><a class="next" href="?guide=${next.id}" data-link data-testid="next-stop"><span><small>Keep the adventure going · Stop #${next.number}</small>${next.name}</span>→</a></aside></div></section>${mapSection(true)}<section class="section"><div class="heading"><div><span class="eyebrow">Support the whole route</span><h2>Four more doors.<br>Four more finds.</h2></div><p>Every participating business makes the route possible. Explore the other lineups and give another local stop a place in your family outing.</p></div><div class="other-grid">${others.map(x=>`<a class="other" href="?guide=${x.id}" data-link data-testid="other-${x.id}"><b>0${x.number}</b><small>${x.locality} · ${x.role}</small><strong>${x.name}</strong><p>${x.products[1][1]}</p><span>Open stop guide →</span></a>`).join("")}</div></section></main>${footer()}</div>`};
+    function updateSeo(stop){const title=stop?`${stop.name} Vending Stop | Amelia's Amusements`:"Country Arcade & Gumballs in Sussex NJ | Amelia's Amusements",desc=stop?`Visit Amelia's Amusements at ${stop.name} in ${stop.locality}, NJ. See the machine, lineup, hours, directions, and family route tips.`:"Explore five country arcade stops in Sussex and Wantage, NJ. Find dye-free gumballs, farm animal capsules, an interactive map, and family treasure hunts.",url=stop?`${SITE_URL}?guide=${stop.id}`:SITE_URL;document.title=title;const set=(sel,attr,val)=>document.querySelectorAll(sel).forEach(n=>n.setAttribute(attr,val));set('link[rel="canonical"]','href',url);set('meta[name="description"]','content',desc);set('meta[property="og:title"]','content',title);set('meta[property="og:description"]','content',desc);set('meta[property="og:url"]','content',url);set('meta[name="twitter:title"]','content',title);set('meta[name="twitter:description"]','content',desc);document.getElementById("stop-schema")?.remove();if(stop){const script=document.createElement("script");script.type="application/ld+json";script.id="stop-schema";script.textContent=JSON.stringify({"@context":"https://schema.org","@type":stop.id==="main-street-barbers"?"BarberShop":stop.id==="lorenzos-pizzeria"?"Restaurant":stop.id==="lukoil-wantage"?"GasStation":"LocalBusiness",name:stop.name,description:`${stop.machine}. ${stop.products.map(p=>p.join(" ")).join(" + ")}`,url,address:{"@type":"PostalAddress",streetAddress:stop.street,addressLocality:stop.locality,addressRegion:"NJ",postalCode:"07461",addressCountry:"US"},geo:{"@type":"GeoCoordinates",latitude:stop.lat,longitude:stop.lng}});document.head.appendChild(script)}}
+    function initMap(){const el=document.getElementById("map");if(!el||typeof L==="undefined")return;if(map)map.remove();markers={};map=L.map(el,{scrollWheelZoom:false});L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);const guide=new URLSearchParams(location.search).get("guide");const points=STOPS.map(s=>{const icon=L.divIcon({className:"pin-wrap",html:`<div class="pin" data-testid="marker-${s.id}"><span>${s.number}</span></div>`,iconSize:[42,42],iconAnchor:[21,21]});const marker=L.marker([s.lat,s.lng],{icon,title:s.name}).addTo(map);marker.bindPopup(`<div class="popup"><small>STOP #${s.number}</small><strong>${s.name}</strong><p>${s.address}</p><p>${s.products.map(p=>p.join(" ")).join(" + ")}</p><a href="${s.maps}" target="_blank" rel="noopener">Google Maps directions →</a></div>`);marker.on("click",()=>{if(guide){history.pushState({},"",`?guide=${s.id}`);render(true)}else focusStop(s.id,false)});markers[s.id]=marker;return[s.lat,s.lng]});L.polyline(points,{color:"#f5b727",weight:3,opacity:.85,dashArray:"7, 10"}).addTo(map);bounds=L.latLngBounds(points);map.fitBounds(bounds,{padding:[40,40]});if(activeId&&markers[activeId])setTimeout(()=>focusStop(activeId,false),150)}
+    function focusStop(id,scroll){const s=STOPS.find(x=>x.id===id);if(!s)return;activeId=id;document.querySelectorAll(".chip").forEach(b=>b.classList.toggle("active",b.dataset.focus===id));document.querySelectorAll(".card").forEach(c=>c.classList.toggle("active",c.dataset.testid===`location-${id}`));if(map&&markers[id]){map.setView([s.lat,s.lng],16,{animate:true});markers[id].openPopup()}if(scroll)document.getElementById("map-section")?.scrollIntoView({behavior:"smooth"})}
+    function render(scroll=false){const guide=new URLSearchParams(location.search).get("guide"),stop=STOPS.find(s=>s.id===guide),scanned=new URLSearchParams(location.search).get("stop");activeId=stop?.id||scanned||null;app.innerHTML=stop?stopPage(stop):home();updateSeo(stop);initMap();if(scroll)window.scrollTo({top:0,behavior:"instant"})}
+    function toggle(key,id){const items=getItems(key),next=items.includes(id)?items.filter(x=>x!==id):[...items,id];localStorage.setItem(key,JSON.stringify(next));document.getElementById("treasure-quest").outerHTML=quest()}
+    document.addEventListener("click",e=>{const link=e.target.closest("[data-link]");if(link){e.preventDefault();history.pushState({},"",link.getAttribute("href"));render(true);return}const menu=e.target.closest("[data-menu]");if(menu){document.getElementById("mobile-nav")?.classList.toggle("open");return}const focus=e.target.closest("[data-focus]");if(focus){const guide=new URLSearchParams(location.search).get("guide");if(guide&&guide!==focus.dataset.focus){history.pushState({},"",`?guide=${focus.dataset.focus}`);render(true)}else focusStop(focus.dataset.focus,focus.hasAttribute("data-scroll-map"));return}if(e.target.closest("[data-reset-map]")){activeId=null;document.querySelectorAll(".chip,.card").forEach(x=>x.classList.remove("active"));if(map&&bounds){map.closePopup();map.fitBounds(bounds,{padding:[40,40]})}return}const collect=e.target.closest("[data-collect]");if(collect){toggle("amelias_farm_animals_v1",collect.dataset.collect);return}const pass=e.target.closest("[data-passport]");if(pass){toggle("amelias_route_passport_v1",pass.dataset.passport);return}const reset=e.target.closest("[data-reset]");if(reset){localStorage.setItem(reset.dataset.reset,"[]");document.getElementById("treasure-quest").outerHTML=quest()}});
+    window.addEventListener("popstate",()=>render(true));render();
   </script>
 </body>
 </html>
-```
-
-### Summary of Updates
-* **Interactive Route Map (`#arcade-map`):** Uses Leaflet + OpenStreetMap with numbered barn-red and arcade-gold pins (#1–#5), a dashed route trail connecting Main Street in Sussex up to **Lukoil (721 NJ-23, Wantage)**, clickable popups, quick-jump buttons above the map, and **Show on Map** buttons on every business card.
-* **Country Arcade Visuals:** Added a warm glowing marquee bulb header, bold arcade-gold trim, tactile card borders, and retro-country styling.
-* **Country Farm Animal Collection & Holistic Gumballs:** Added a dedicated two-card spotlight featuring all 10 farm animals (Pig, Rooster, Sheep, Bull, Cow, Horse, Goat, Ostrich, Llama, Bee) with chase tiers alongside **100% Dye-Free Holistic Gumballs** (no artificial food dyes, colored with fruit and vegetable extracts).
-* **QR Codes Removed:** Removed all on-page QR code boxes, QR scripts, and print-QR buttons while still keeping `?stop=` URL highlighting if someone visits from an external link.
-```
